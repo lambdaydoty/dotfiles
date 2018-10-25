@@ -100,3 +100,5 @@ source $ZSH/oh-my-zsh.sh
 source ~/.bash_aliases
 
 source ~/.profile
+
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
