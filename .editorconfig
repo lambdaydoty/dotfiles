@@ -24,3 +24,4 @@ root = true
 [.gitconfig]
   insert_final_newline = ignore
   indent_style = ignore
+  indent_size = 4
