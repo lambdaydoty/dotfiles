@@ -68,9 +68,9 @@ plugins=(
 
 function source_if_possible()
 {
-	if [[ -r $1 ]]; then
-		source $1
-	fi
+  if [[ -r $1 ]]; then
+    source $1
+  fi
 }
 source_if_possible $ZSH/oh-my-zsh.sh
 
