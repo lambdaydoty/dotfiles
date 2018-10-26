@@ -66,7 +66,13 @@ plugins=(
   git
 )
 
-source $ZSH/oh-my-zsh.sh
+function source_if_possible()
+{
+	if [[ -r $1 ]]; then
+		source $1
+	fi
+}
+source_if_possible $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -97,8 +103,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source ~/.bash_aliases
-
-source ~/.profile
+source_if_possible ~/.bash_aliases
+source_if_possible ~/.profile
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+set -o ignoreeof # prevent <c-d> to kill the shell
