@@ -1,5 +1,6 @@
 # dotfiles
 
+## Installation
 * Reference: https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
 * Intallaion dotfiles onto a new system
 ```
@@ -15,4 +16,12 @@ config config --local user.email "euphrates.tigris@gmail.com"
 config config --local user.name "lambdaydoty"
 config remote set-url origin git@github.com-lambdaydoty:lambdaydoty/dotfiles
 config status
+```
+
+## MS-Authentication
+* Powershell/Cmder
+```
+csudo 'C:\Program Files\OpenVPN\bin\openvpn.exe' $HOME\config.ovpn
+(Invoke-WebRequest -Uri 'https://api.ipify.org?format=json').content | jq '.ip'
+csudo $HOME\Dropbox\@scripts\cert-X.bat
 ```
