@@ -8,7 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="agnoster"
+ZSH_THEME="babun"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -94,6 +94,11 @@ source_if_possible $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+set -o ignoreeof # prevent <c-d> to kill the shell
+if [[ -z "$SSH_AUTH_SOCK" ]]; then
+  eval `ssh-agent -s` > /dev/null
+fi
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -105,6 +110,4 @@ source_if_possible $ZSH/oh-my-zsh.sh
 
 source_if_possible ~/.bash_aliases
 source_if_possible ~/.profile
-
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-set -o ignoreeof # prevent <c-d> to kill the shell
