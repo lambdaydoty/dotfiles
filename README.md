@@ -13,6 +13,8 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config checkout
 config status
 # mv .zshrc .zshrc.bak
+# mv .gitconfig .gitconfig.bak
+config checkout
 config config --local status.showUntrackedFiles no
 config config --local user.email "euphrates.tigris@gmail.com"
 config config --local user.name "lambdaydoty"
@@ -25,15 +27,16 @@ config status
 ## 1. Gnerating a new SSH key
 ssh-add -l
 mygithubid="lambdaydoty"
+mygithubmail="euphrates.tigris@gmail.com"
 mysshkey="$HOME/.ssh/id_rsa.github.$mygithubid"
 mypass=""
-ssh-keygen -t rsa -b 4096 -C "your_email@example.com" -N $mypass -f $mysshkey
+ssh-keygen -t rsa -b 4096 -C $mygithubmail -N $mypass -f $mysshkey
 ssh-add $mysshkey
 ssh-add -l
 
 ## 2. Adding the public key to Github
 cat "$mysshkey.pub" > /dev/clipboard
-# Github: Settings -> SSH and GPG Keys -> New SSh key (Title = MyPC)
+# Github: Settings -> SSH and GPG Keys -> New SSh key (Title = x200/Babun)
 
 ## 3. Add remote upstream
 cat .cfg/config # check the ssh config settings
