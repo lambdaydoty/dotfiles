@@ -20,6 +20,26 @@ config remote set-url origin git@github.com-lambdaydoty:lambdaydoty/dotfiles
 config status
 ```
 
+## SSH
+```
+## 1. Gnerating a new SSH key
+ssh-add -l
+mygithubid="lambdaydoty"
+mysshkey="$HOME/.ssh/id_rsa.github.$mygithubid"
+mypass=""
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com" -N $mypass -f $mysshkey
+ssh-add $mysshkey
+ssh-add -l
+
+## 2. Adding the public key to Github
+cat "$mysshkey.pub" > /dev/clipboard
+# Github: Settings -> SSH and GPG Keys -> New SSh key (Title = MyPC)
+
+## 3. Add remote upstream
+cat .cfg/config # check the ssh config settings
+config push -u origin master
+```
+
 ## MS-Windows
 
 ### Instructions
@@ -66,8 +86,8 @@ TODO
     * Startup task: ```specified named task``` = ```{Powershell::Powershell}```
     * Predefined tasks:
         1. [+]
-        2. ```GroupX``` <= ```Babun```
-        3. ```Task parameters``` = ``` /icon "%userprofile%\.babun\cygwin\bin\mintty.exe" /dir "%userprofile%"```
-        4. ```Commands``` = ```%USERPROFILE%\.babun\cygwin\bin\mintty.exe /bin/env CHERE_INVOKING=1 /bin/zsh.exe  -new_console:d:%USERPROFILE%\.babun\cygwin\home\%USERNAME%```
-    * Set focus to ConEmu: ```Set focus to ConEmu``` = ```Win+Z```
+        2. *GroupX* <= ```Babun```
+        3. *Task parameters* = ``` /icon "%userprofile%\.babun\cygwin\bin\mintty.exe" /dir "%userprofile%"```
+        4. *Commands* = ```%USERPROFILE%\.babun\cygwin\bin\mintty.exe /bin/env CHERE_INVOKING=1 /bin/zsh.exe  -new_console:d:%USERPROFILE%\.babun\cygwin\home\%USERNAME%```
+    * Set focus to ConEmu: *Set focus to ConEmu* = ```Win+Z```
 
