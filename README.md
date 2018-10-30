@@ -74,7 +74,9 @@ csudo $HOME\Dropbox\@scripts\cert-B.bat
 
 ### Babun/Cygwin
 ```
-TODO
+## PS/Cmder
+csudo choco install -y babun
+& $HOME\.babun\update.bat
 ```
 
 ### Cmder/ConEmu Customizations
