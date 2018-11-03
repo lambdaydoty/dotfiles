@@ -28,3 +28,11 @@ set hlsearch    "| http://vim.wikia.com/wiki/Highlight_all_search_pattern_matche
 set incsearch   "| http://vim.wikia.com/wiki/Searching#Show_the_next_match_while_entering_a_search
 set splitbelow
 set splitright
+
+"" vim/cygwin block cursor
+if has("win32unix")
+  let &t_ti.="\e[1 q"
+  let &t_SI.="\e[5 q"
+  let &t_EI.="\e[1 q"
+  let &t_te.="\e[0 q"
+endif
