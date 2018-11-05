@@ -21,7 +21,8 @@ config config --local user.name "lambdaydoty"
 config remote set-url origin git@github.com-lambdaydoty:lambdaydoty/dotfiles
 config status
 # sed -i -e 's/lambda/babun/g' ~/.zshrc
-``
+config push -u origin master
+```
 
 ## SSH
 ```
