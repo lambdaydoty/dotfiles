@@ -17,12 +17,14 @@ Plug 'tpope/vim-commentary'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'pangloss/vim-javascript'        "| js
-Plug 'tpope/vim-dispatch'             "| Laravel
+Plug 'tpope/vim-dispatch'             "| laravel
 Plug 'tpope/vim-projectionist'        "|
 Plug 'noahfrederick/vim-composer'     "|
 Plug 'noahfrederick/vim-laravel'
-Plug 'tomlion/vim-solidity'           "| Solidity
+Plug 'tomlion/vim-solidity'           "| solidity
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'StanAngeloff/php.vim'           "| php folding
+Plug 'rayburgemeestre/phpfolding.vim' "| php folding
 call plug#end()
 
 set hlsearch    "| http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
