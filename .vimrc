@@ -22,6 +22,7 @@ Plug 'tpope/vim-projectionist'        "|
 Plug 'noahfrederick/vim-composer'     "|
 Plug 'noahfrederick/vim-laravel'
 Plug 'tomlion/vim-solidity'           "| Solidity
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 set hlsearch    "| http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
