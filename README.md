@@ -45,6 +45,16 @@ cat .cfg/config # check the ssh config settings
 config push -u origin master
 ```
 
+## Minimality Packages
+```
+## Vim with system clipboard
+vim --version | grep clip --color
+sudo apt-get install vim-gnome -y
+
+## Others
+sudo apt-get install jq -y
+```
+
 ## MS-Windows
 
 ### Instructions
