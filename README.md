@@ -24,6 +24,19 @@ config status
 config push -u origin master
 ```
 
+## New git project
+```
+touch .gitignore README.md
+git init
+git config --local user.email "euphrates.tigris@gmail.com"
+git config --local user.name "lambdaydoty"
+git add .
+git ci -m "Initial commit"
+git remote add origin git@github.com-lambdaydoty:lambdaydoty/repo-name.git
+git push -u origin master
+git co -b dev
+```
+
 ## SSH
 ```
 ## 1. Gnerating a new SSH key
