@@ -25,6 +25,7 @@ Plug 'tomlion/vim-solidity'           "| solidity
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'StanAngeloff/php.vim'           "| php folding
 Plug 'rayburgemeestre/phpfolding.vim' "| php folding
+Plug 'benmills/vimux'
 call plug#end()
 
 set hlsearch    "| http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
