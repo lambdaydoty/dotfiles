@@ -1,0 +1,17 @@
+alias view="view -c \"set hlsearch\""
+
+today=$(date +"%Y-%m-%d")
+hke_backend="~/HKE/backend"
+alias hke="cd $hke_backend"
+alias hke_tinx="cd $hke_backend; sudo php artisan tinx"
+alias hke_log="view \"+ normal G $\" $hke_backend/storage/logs/laravel-$today.log"    # view the tail of the newest laravel log
+alias art="artisan"
+
+alias ll='ls -l'
+alias l='ls -AF'
+alias grep='grep --color'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ~='cd ~'
+alias h='cd ~'
+# alias /='cd /'
