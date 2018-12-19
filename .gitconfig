@@ -5,8 +5,16 @@
 	st = status
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [core]
-	pager =
+	pager = less -r
 	editor = vim
 	trustctime = false
 [push]
 	default = simple
+[color]
+	diff = auto
+	ui = true
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red
+	new = green
