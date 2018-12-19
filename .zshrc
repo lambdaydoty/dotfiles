@@ -8,7 +8,9 @@ export ZSH=$HOME/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
+# ZSH_THEME="arrow"
+ZSH_THEME="gallois"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -111,3 +113,4 @@ fi
 source_if_possible ~/.bash_aliases
 source_if_possible ~/.profile
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias ssh='ssh -o ServerAliveInterval=60'
