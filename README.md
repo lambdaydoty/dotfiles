@@ -106,19 +106,19 @@ csudo choco install -y babun
 & $HOME\.babun\update.bat
 ```
 
-### Cmder/ConEmu Customizations
+### Cmder/ConEmu with Babun
 
-1. [Win] + z
-2. [Win] + [Alt] + p
-3. [Ctrl] + f
+1. [Win] + z (focus to ConEmu)
+2. [Win] + [Alt] + p (Settings)
+3. [Ctrl] + f (Search keywords)
 4. _
-    * Startup task: ```specified named task``` = ```{Powershell::Powershell}```
     * Predefined tasks:
         1. [+]
         2. *GroupX* <= ```Babun```
         3. *Task parameters* = ``` /icon "%userprofile%\.babun\cygwin\bin\mintty.exe" /dir "%userprofile%"```
         4. *Commands* = ```%USERPROFILE%\.babun\cygwin\bin\mintty.exe /bin/env CHERE_INVOKING=1 /bin/zsh.exe  -new_console:d:%USERPROFILE%\.babun\cygwin\home\%USERNAME%```
-    * Set focus to ConEmu: *Set focus to ConEmu* = ```Win+Z```
+    * Set focus to ConEmu: *Set focus to ConEmu* = ```Win+Z``` (Win=App)
+    * Startup task: ```specified named task``` = ```{Powershell::Powershell}```
 
 ### Reference
 * [SSH@DigitalOcean](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys) [AddSSH@Github](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/) [GenSSH@Github](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
