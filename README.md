@@ -118,7 +118,7 @@ csudo choco install -y babun
         3. *Task parameters* = ``` /icon "%userprofile%\.babun\cygwin\bin\mintty.exe" /dir "%userprofile%"```
         4. *Commands* = ```%USERPROFILE%\.babun\cygwin\bin\mintty.exe /bin/env CHERE_INVOKING=1 /bin/zsh.exe  -new_console:d:%USERPROFILE%\.babun\cygwin\home\%USERNAME%```
     * Set focus to ConEmu: *Set focus to ConEmu* = ```Win+Z``` (Win=App)
-    * Startup task: ```specified named task``` = ```{Powershell::Powershell}```
+    * Startup task: ```specified named task``` = ```{Babun}```
 
 ### Reference
 * [SSH@DigitalOcean](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys) [AddSSH@Github](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/) [GenSSH@Github](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
