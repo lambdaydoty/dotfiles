@@ -93,11 +93,10 @@ control imdisk.cpl # -> LOAD ISO & INSTALL IT
 Invoke-WebRequest -Uri 'https://sites.google.com/a/csie.ntu.edu.tw/ta221/download/config.ovpn?attredirects=0&d=1' -OutFile .\config.ovpn
 
 ## 6. Authenticate M$ [PS/Cmder]
-(Invoke-WebRequest -Uri 'https://api.ipify.org?format=json').content | jq '.ip'
+(Invoke-WebRequest -Uri 'https://api.ipify.org?format=json').content | jq '.ip'   # check ip
 csudo 'C:\Program Files\OpenVPN\bin\openvpn.exe' $HOME\config.ovpn
-(Invoke-WebRequest -Uri 'https://api.ipify.org?format=json').content | jq '.ip'
-csudo $HOME\Dropbox\@scripts\cert-A.bat
-csudo $HOME\Dropbox\@scripts\cert-B.bat
+csudo ~/.ms-auth/authorization-script-ntu-win7.bat
+csudo ~/.ms-auth/authorization-script-ntu-office16.bat
 ```
 
 ### Babun/Cygwin
