@@ -93,11 +93,10 @@ control imdisk.cpl # -> LOAD ISO & INSTALL IT
 Invoke-WebRequest -Uri 'https://sites.google.com/a/csie.ntu.edu.tw/ta221/download/config.ovpn?attredirects=0&d=1' -OutFile .\config.ovpn
 
 ## 6. Authenticate M$ [PS/Cmder]
-(Invoke-WebRequest -Uri 'https://api.ipify.org?format=json').content | jq '.ip'
+(Invoke-WebRequest -Uri 'https://api.ipify.org?format=json').content | jq '.ip'   # check ip
 csudo 'C:\Program Files\OpenVPN\bin\openvpn.exe' $HOME\config.ovpn
-(Invoke-WebRequest -Uri 'https://api.ipify.org?format=json').content | jq '.ip'
-csudo $HOME\Dropbox\@scripts\cert-A.bat
-csudo $HOME\Dropbox\@scripts\cert-B.bat
+csudo ~/.ms-auth/authorization-script-ntu-win7.bat
+csudo ~/.ms-auth/authorization-script-ntu-office16.bat
 ```
 
 ### Babun/Cygwin
@@ -107,19 +106,26 @@ csudo choco install -y babun
 & $HOME\.babun\update.bat
 ```
 
-### Cmder/ConEmu Customizations
+### Cmder/ConEmu with Babun
 
-1. [Win] + z
-2. [Win] + [Alt] + p
-3. [Ctrl] + f
+1. [Win] + z (focus to ConEmu)
+2. [Win] + [Alt] + p (Settings)
+3. [Ctrl] + f (Search keywords)
 4. _
-    * Startup task: ```specified named task``` = ```{Powershell::Powershell}```
     * Predefined tasks:
         1. [+]
         2. *GroupX* <= ```Babun```
         3. *Task parameters* = ``` /icon "%userprofile%\.babun\cygwin\bin\mintty.exe" /dir "%userprofile%"```
         4. *Commands* = ```%USERPROFILE%\.babun\cygwin\bin\mintty.exe /bin/env CHERE_INVOKING=1 /bin/zsh.exe  -new_console:d:%USERPROFILE%\.babun\cygwin\home\%USERNAME%```
-    * Set focus to ConEmu: *Set focus to ConEmu* = ```Win+Z```
+    * Set focus to ConEmu: *Set focus to ConEmu* = ```Win+Z``` (Win=App)
+    * Startup task: ```specified named task``` = ```{Babun}```
+
+### Ngrok
+```
+share demo.test \
+  -config ~/.ngrok2/ngrok.yml \
+  -config ~/ngrok.authtoken.yml
+```
 
 ### Reference
 * [SSH@DigitalOcean](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys) [AddSSH@Github](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/) [GenSSH@Github](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
