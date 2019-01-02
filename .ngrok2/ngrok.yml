@@ -1,0 +1,5 @@
+web_addr: 192.168.10.10:4040
+log: ~/ngrok.log
+log_level: debug
+log_format: json
+bind_tls: true

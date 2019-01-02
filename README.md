@@ -120,6 +120,13 @@ csudo choco install -y babun
     * Set focus to ConEmu: *Set focus to ConEmu* = ```Win+Z``` (Win=App)
     * Startup task: ```specified named task``` = ```{Babun}```
 
+### Ngrok
+```
+share demo.test \
+  -config ~/.ngrok2/ngrok.yml \
+  -config ~/ngrok.authtoken.yml
+```
+
 ### Reference
 * [SSH@DigitalOcean](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys) [AddSSH@Github](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/) [GenSSH@Github](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
 * [Cmder:Wiki](https://github.com/cmderdev/cmder/wiki) [ConEmu:Doc](https://conemu.github.io/en/) [Babun:Wiki](https://github.com/babun/babun/wiki) [Babun:Doc](http://babun.github.io/development.html) [Babun:Faq](http://babun.github.io/faq.html)
