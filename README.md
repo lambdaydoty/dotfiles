@@ -104,6 +104,10 @@ csudo ~/.ms-auth/authorization-script-ntu-office16.bat
 ## PS/Cmder
 csudo choco install -y babun
 & $HOME\.babun\update.bat
+
+## Packages
+pact install cygutils-extra # putclip/getclip
+pact install jq unzip
 ```
 
 ### Cmder/ConEmu with Babun

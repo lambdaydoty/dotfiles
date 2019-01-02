@@ -114,9 +114,23 @@ fi
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
+# Mutlisystem
+unameOut="$(uname -s)"
+case "${unameOut}" in
+  Linux*)   machine=Linux;;
+  Darwin*)  machine=Mac;;
+  CYGWIN*)  machine=Cygwin;;
+  MINGW*)   machine=MinGw;;
+  *)        machine="UNKNOWN:${unameOut}"
+esac
+alias xclip_Linux='xclip -selection c'
+alias xclip_Cygwin='putclip'
+# echo ${machine}
+
+## Aliases
 source_if_possible ~/.bash_aliases
 source_if_possible ~/.profile
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias ssh='ssh -o ServerAliveInterval=60'
 alias docker="sudo docker"
-
+alias xclip=xclip_$machine
