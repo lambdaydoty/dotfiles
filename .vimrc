@@ -39,6 +39,10 @@ if has("win32unix")
   let &t_SI.="\e[5 q"
   let &t_EI.="\e[1 q"
   let &t_te.="\e[0 q"
+  nnoremap <C-J> <C-W><C-J>
+  nnoremap <C-K> <C-W><C-K>
+  nnoremap <C-L> <C-W><C-L>
+  nnoremap <C-H> <C-W><C-H>
 endif
 
 "" vim <C-right> bindings
