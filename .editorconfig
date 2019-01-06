@@ -12,7 +12,7 @@ root = true
 [Makefile]
   indent_style = tab
 
-[*.{py,php}]
+[*.{py,php,sol}]
   indent_size = 4
 
 [*.json]

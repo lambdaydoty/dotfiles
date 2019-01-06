@@ -17,6 +17,7 @@ Plug 'tpope/vim-commentary'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'pangloss/vim-javascript'        "| js
+Plug 'w0rp/ale'                       "| async lint
 Plug 'tpope/vim-dispatch'             "| laravel
 Plug 'tpope/vim-projectionist'        "|
 Plug 'noahfrederick/vim-composer'     "|
@@ -29,6 +30,13 @@ Plug 'benmills/vimux'                 "| tmux
 Plug 'wlangstroth/vim-racket'         "| racket
 Plug 'kien/rainbow_parentheses.vim'   "| racket
 call plug#end()
+
+"" w0rp/ale: If encounting problems, debug with :ALEInfo command
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'php': ['php', 'phpcs'],
+\   'solidity': ['solium'],
+\}
 
 set hlsearch    "| http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
 set incsearch   "| http://vim.wikia.com/wiki/Searching#Show_the_next_match_while_entering_a_search

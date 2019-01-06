@@ -38,7 +38,7 @@ git co -b dev
 ```
 
 ## SSH
-```
+```bash
 ## 1. Gnerating a new SSH key
 ssh-add -l
 mygithubid="lambdaydoty"
@@ -58,14 +58,31 @@ cat .cfg/config # check the ssh config settings
 config push -u origin master
 ```
 
-## Minimality Packages
-```
-## Vim with system clipboard
+## Minimality packages
+```bash
+
+## The Vim:
+# come with system clipboard
 vim --version | grep clip --color
 sudo apt-get install vim-gnome -y
+# come with newest version
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt-get update
+sudo apt-get install vim
 
 ## Others
 sudo apt-get install jq -y
+
+## Install php (7.2) + composer
+sudo apt-get install php php-cli
+sudp apt-get install php7.2-gmp php7.2-curl php7.2-xml
+php -v
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+HASH="$(wget -q -O - https://composer.github.io/installer.sig)"
+php -r "if (hash_file('SHA384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+rm composer-setup.php
+composer --version
 ```
 
 ## MS-Windows

@@ -134,3 +134,4 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias ssh='ssh -o ServerAliveInterval=60'
 alias docker="sudo docker"
 alias xclip=xclip_$machine
+alias truffle='./node_modules/.bin/truffle'
