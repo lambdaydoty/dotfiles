@@ -1,5 +1,16 @@
 colorscheme torte
 
+"" group all generated files
+if !isdirectory(expand("$HOME/.vimundo"))
+  call mkdir(expand("$HOME/.vimundo"))
+endif
+if !isdirectory(expand("$HOME/.vimbackup"))
+  call mkdir(expand("$HOME/.vimbackup"))
+endif
+set undodir=~/.vimundo,.,/tmp
+set backupdir=~/.vimbackup,.,/tmp
+set directory=.,~/tmp,/var/tmp,/tmp
+
 "" netrw
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -62,27 +73,3 @@ set term=xterm-256color
 "" vim drracket's if-indent style
 set lispwords-=if
 
-"" options for 'kien/rainbow_parentheses.vim'
-" let g:rbpt_colorpairs = [
-"     \ ['brown',       'RoyalBlue3'],
-"     \ ['Darkblue',    'SeaGreen3'],
-"     \ ['darkgray',    'DarkOrchid3'],
-"     \ ['darkgreen',   'firebrick3'],
-"     \ ['darkcyan',    'RoyalBlue3'],
-"     \ ['darkred',     'SeaGreen3'],
-"     \ ['darkmagenta', 'DarkOrchid3'],
-"     \ ['brown',       'firebrick3'],
-"     \ ['gray',        'RoyalBlue3'],
-"     \ ['black',       'SeaGreen3'],
-"     \ ['darkmagenta', 'DarkOrchid3'],
-"     \ ['Darkblue',    'firebrick3'],
-"     \ ['darkgreen',   'RoyalBlue3'],
-"     \ ['darkcyan',    'SeaGreen3'],
-"     \ ['darkred',     'DarkOrchid3'],
-"     \ ['red',         'firebrick3'],
-"     \ ]
-" let g:rbpt_max = 16
-" au VimEnter * RainbowParenthesesToggle
-" au Syntax * RainbowParenthesesLoadRound
-" au Syntax * RainbowParenthesesLoadSquare
-" au Syntax * RainbowParenthesesLoadBraces
