@@ -37,7 +37,7 @@ git push -u origin master
 git co -b dev
 ```
 
-## SSH
+## SSH (to repos)
 ```bash
 ## 1. Gnerating a new SSH key
 ssh-add -l
@@ -84,6 +84,55 @@ sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 rm composer-setup.php
 composer --version
 ```
+
+## SSH Server
+
+### Server side
+```bash
+sudo apt install openssh-server
+sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.original    # backup
+sudo chmod a-w /etc/ssh/sshd_config.original
+sudo echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
+//sudo echo "Port 2222" >> /etc/ssh/sshd_config
+//sudo echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
+sudo systemctl restart sshd.service
+```
+
+### Client side
+```bash
+server_name=ubuntuX230
+mysshkey="$HOME/.ssh/id_rsa.$server_name"
+mypass=""
+ssh-keygen -t rsa -N $mypass -f $mysshkey
+ssh-copy-id -i "$mysshkey.pub" jws@192.168.1.xxx
+ssh-add $mysshkey
+ssh jws@192.168.1.xxx    # -R 2000:localhost:2000 # (optional: establish a reverse tunnel)
+```
+
+## SSH over a public server B (+clipboard)
+
+A --> B --> C
+
+### Preparation
+```bash
+# In local clients A, C, establish connections with B
+server_name=ntucsie; mysshkey="$HOME/.ssh/id_rsa.$server_name"; mypass=""
+ssh-keygen -t rsa -N $mypass -f $mysshkey
+ssh-copy-id -i "$mysshkey.pub" b92028@linux1.csie.ntu.edu.tw
+```
+
+### Connections
+```bash
+# In local client C 
+ssh -R 10100:localhost:22 ntucsie
+# In local client A (background tab)
+ssh -L 5000:localhost:10100 ntucsie
+# In local client A (working tab)
+ssh -p 5000 ubuntuX230 -R 2000:localhost:2000
+     ^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^
+#         tunnelA              tunnelB
+```
+[reference](https://superuser.com/questions/985807/set-up-direct-ssh-connection-from-a-to-c-without-public-ips-using-one-public-ssh)
 
 ## MS-Windows
 
