@@ -114,7 +114,7 @@ fi
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
-# Mutlisystem
+# Multisystem
 unameOut="$(uname -s)"
 case "${unameOut}" in
   Linux*)   machine=Linux;;
