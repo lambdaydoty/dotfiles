@@ -100,11 +100,10 @@ sudo systemctl restart sshd.service
 
 ### Client side
 ```bash
-server_name=ubuntuX230
-mysshkey="$HOME/.ssh/id_rsa.$server_name"
-mypass=""
+server_name=ubuntuX230;  mysshkey="$HOME/.ssh/id_rsa.$server_name";  mypass=""
 ssh-keygen -t rsa -N $mypass -f $mysshkey
-ssh-copy-id -i "$mysshkey.pub" jws@192.168.1.xxx
+ssh-copy-id -i "$mysshkey.pub" jws@192.168.1.xxx  # or # ssh-copy-id -i "$mysshkey.pub" -p 5000 ubuntuX230
+# you can add the key permanently or use key on the fly with .ssh/config
 ssh-add $mysshkey
 ssh jws@192.168.1.xxx    # -R 2000:localhost:2000 # (optional: establish a reverse tunnel)
 ```
