@@ -123,15 +123,16 @@ case "${unameOut}" in
   MINGW*)   machine=MinGw;;
   *)        machine="UNKNOWN:${unameOut}"
 esac
-alias xclip_Linux='xclip -selection c'
-alias xclip_Cygwin='putclip'
+clipboard_daemon_port=2000
+alias xclip_Linux="nc -N localhost $clipboard_daemon_port"
+alias xclip_Cygwin=putclip
 # echo ${machine}
 
 ## Aliases
 source_if_possible ~/.bash_aliases
 source_if_possible ~/.profile
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias ssh='ssh -o ServerAliveInterval=60'
+alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+alias ssh="ssh -o ServerAliveInterval=60"
 alias docker="sudo docker"
 alias xclip=xclip_$machine
-alias truffle='./node_modules/.bin/truffle'
+alias truffle=./node_modules/.bin/truffle
