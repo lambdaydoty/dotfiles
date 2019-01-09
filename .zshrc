@@ -9,8 +9,14 @@ export ZSH=$HOME/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="agnoster"
+# ZSH_THEME="gallois"
 # ZSH_THEME="arrow"
-ZSH_THEME="gallois"
+case "${OSTYPE}" in
+  linux*)   ZSH_THEME="gallois";;
+  cygwin*)  ZSH_THEME="arrow";;
+  win*)     ;;
+  *)        ;;
+esac
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -136,3 +142,11 @@ alias ssh="ssh -o ServerAliveInterval=60"
 alias docker="sudo docker"
 alias xclip=xclip_$machine
 alias truffle=./node_modules/.bin/truffle
+
+# Multisystem
+case "${OSTYPE}" in
+  linux*)   tmux ls;;
+  cygwin*)  ;;
+  win*)     ;;
+  *)        ;;
+esac
