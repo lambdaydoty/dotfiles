@@ -17,6 +17,7 @@ case "${OSTYPE}" in
   win*)     ;;
   *)        ;;
 esac
+grep hypervisor /proc/cpuinfo >/dev/null && ZSH_THEME="lambda" # For vm specifically
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
