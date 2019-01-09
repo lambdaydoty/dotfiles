@@ -110,7 +110,7 @@ ssh jws@192.168.1.xxx    # -R 2000:localhost:2000 # (optional: establish a rever
 
 ## SSH over a public server B (+clipboard)
 
-A --> B --> C
+A --> B --> C [--> D]
 
 ### Preparation
 ```bash
@@ -130,6 +130,9 @@ ssh -L 5000:localhost:10100 ntucsie
 ssh -p 5000 ubuntuX230 -R 2000:localhost:2000
      ^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^
 #         tunnelA              tunnelB
+
+# In local client C into Vagrant Box
+ssh -i ~/.ssh/id_rsa.vagrant -p 2222 vagrant@127.0.0.1 -R 2000:localhost:2000
 ```
 [reference](https://superuser.com/questions/985807/set-up-direct-ssh-connection-from-a-to-c-without-public-ips-using-one-public-ssh)
 
