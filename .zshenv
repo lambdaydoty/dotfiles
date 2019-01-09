@@ -1,5 +1,5 @@
 # Multisystem
-unameOut="$(/usr/bin/uname -s)"
+unameOut="$($(where uname))"
 case "${unameOut}" in
   Linux*)   machine=Linux;;
   Darwin*)  machine=Mac;;
