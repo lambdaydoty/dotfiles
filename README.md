@@ -1,5 +1,17 @@
 # dotfiles
 
+## Working Cheatsheet
+```bash
+# A
+./clipboard-daemon.sh &>/dev/null &
+grep -slR "PRIVATE" .ssh | xargs ssh-add
+ssh -fN -L 5000:localhost:10100 ntucsie
+ssh -p 5000 ubuntuX230 -R 2000:localhost:2000
+
+# C
+tmux attach
+```
+
 ## Installation
 
 * Reference: https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/

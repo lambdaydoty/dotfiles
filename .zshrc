@@ -11,13 +11,14 @@ export ZSH=$HOME/.oh-my-zsh
 # ZSH_THEME="agnoster"
 # ZSH_THEME="gallois"
 # ZSH_THEME="arrow"
+function test_vm() { grep hypervisor /proc/cpuinfo >/dev/null }
 case "${OSTYPE}" in
   linux*)   ZSH_THEME="gallois";;
   cygwin*)  ZSH_THEME="arrow";;
   win*)     ;;
   *)        ;;
 esac
-grep hypervisor /proc/cpuinfo >/dev/null && ZSH_THEME="lambda" # For vm specifically
+test_vm  && ZSH_THEME="lambda" # For vm specifically
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -144,10 +145,3 @@ alias docker="sudo docker"
 alias xclip=xclip_$machine
 alias truffle=./node_modules/.bin/truffle
 
-# Multisystem
-case "${OSTYPE}" in
-  linux*)   tmux ls;;
-  cygwin*)  ;;
-  win*)     ;;
-  *)        ;;
-esac
