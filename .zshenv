@@ -8,7 +8,7 @@ case "${unameOut}" in
   *)        machine="UNKNOWN:${unameOut}"
 esac
 clipboard_daemon_port=2000
-alias xclip_Linux="nc -N localhost $clipboard_daemon_port"
-alias xclip_Cygwin=putclip
-alias xclip=xclip_$machine
+alias _xclip_Linux="nc -N localhost $clipboard_daemon_port"
+alias _xclip_Cygwin=putclip
+alias xclip=_xclip_$machine
 # echo ${machine}
