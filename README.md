@@ -131,8 +131,21 @@ ssh -p 5000 ubuntuX230 -R 2000:localhost:2000
      ^^^^^^^^^^^^^^^^  ^^^^^^^^^^^^^^^^^^^^^^
 #         tunnelA              tunnelB
 
-# In local client C into Vagrant Box
+# In local client C into Vagrant Box D
 ssh -i ~/.ssh/id_rsa.vagrant -p 2222 vagrant@127.0.0.1 -R 2000:localhost:2000
+```
+
+```bash
++--------+--------+          +-------+           +--------+     +-------------+
+| x200   | x240   |          | csie  |           | x230   |     | (Homestead) |
+| win7   | win7   |          |       |           | ubuntu |     |             |
+| mintty | mintty |          |       |           |        |     |             |
+|        |        |          |       |           |        |     |             |
++-----------------+          +-------+           +--------+     +-------------+
+| 5000   | 5000   | -------> | 10100 | --------> | 22     | --> |    2222     | (terminal tunnel)
++-----------------+          +-------+           +--------+     +-------------+
+| 2000   | 2000   | <--------------------------- | 2000   | <-- |    2000     | (clipboard tunnel)
++--------+--------+                              +--------+     +-------------+
 ```
 [reference](https://superuser.com/questions/985807/set-up-direct-ssh-connection-from-a-to-c-without-public-ips-using-one-public-ssh)
 
