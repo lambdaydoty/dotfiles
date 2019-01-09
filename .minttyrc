@@ -2,3 +2,5 @@ CursorType=block
 CursorBlinks=yes
 SuppressDEC=12
 # ref: https://github.com/mintty/wsltty/issues/133
+
+Font=DejaVu Sans Mono for Powerline
