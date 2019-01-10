@@ -75,3 +75,5 @@ set term=xterm-256color
 "" vim drracket's if-indent style
 set lispwords-=if
 
+"" vimdiff
+au BufEnter,BufNew * if &diff | syntax off | else | syntax on | endif

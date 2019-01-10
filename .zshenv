@@ -7,3 +7,5 @@ case "${OSTYPE}" in
   win*)     ;;
   *)        ;;
 esac
+
+alias truffle=./node_modules/.bin/truffle
