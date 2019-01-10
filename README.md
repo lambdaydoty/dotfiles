@@ -10,6 +10,9 @@ ssh -p 5000 ubuntuX230 -R 2000:localhost:2000
 
 # C
 tmux attach
+
+## watch tmux-pane! ## TODO pack it into bash function... [seesion:win:pane]
+watch -n0 tmux capture-pane -p -S 0 -t WGCT-Solidity:0.1
 ```
 
 ## Installation
