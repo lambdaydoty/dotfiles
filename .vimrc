@@ -17,7 +17,7 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 15
-if !isdirectory("./vendor/laravel") " excluding Laravel projects
+if !&diff && !isdirectory("./vendor/laravel") " excluding Laravel projects
   augroup ProjectDrawer
     autocmd!
     autocmd VimEnter * :Vexplore
