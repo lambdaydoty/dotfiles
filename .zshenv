@@ -14,5 +14,6 @@ function artisan() {
     php artisan "$@"
 }
 
+alias truffle=./node_modules/.bin/truffle
 alias hke='cd /home/vagrant/code/hke/backend'
 alias demo='cd /home/vagrant/code/demo'

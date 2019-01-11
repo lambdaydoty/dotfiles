@@ -3,13 +3,16 @@
 ## Working Cheatsheet
 ```bash
 # A
-./clipboard-daemon.sh &>/dev/null &
+./clipboard-daemon.sh&
 grep -slR "PRIVATE" .ssh | xargs ssh-add
-ssh -fN -L 5000:localhost:10100 ntucsie
-ssh -p 5000 ubuntuX230 -R 2000:localhost:2000
+ssh -fN ntucsie
+ssh ubuntuX230
 
 # C
 tmux attach
+
+## watch tmux-pane! ## TODO pack it into bash function... [seesion:win:pane]
+watch -n0 tmux capture-pane -p -S 0 -t WGCT-Solidity:0.1
 ```
 
 ## Installation
