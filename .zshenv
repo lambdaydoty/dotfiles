@@ -7,3 +7,12 @@ case "${OSTYPE}" in
   win*)     ;;
   *)        ;;
 esac
+
+alias art=artisan
+alias phpunit='vendor/bin/phpunit'
+function artisan() {
+    php artisan "$@"
+}
+
+alias hke='cd /home/vagrant/code/hke/backend'
+alias demo='cd /home/vagrant/code/demo'
