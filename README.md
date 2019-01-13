@@ -3,15 +3,14 @@
 ## Working Cheatsheet
 ```bash
 # A
-./clipboard-daemon.sh&
-grep -slR "PRIVATE" .ssh | xargs ssh-add
+./clipboard-daemon.sh & ./privatekeys-adder.sh
 ssh -fN ntucsie
 ssh ubuntuX230
 
 # C
 tmux attach
 
-## watch tmux-pane! ## TODO pack it into bash function... [seesion:win:pane]
+# watch tmux-pane! ## TODO pack it into bash function... [seesion:win:pane]
 watch -n0 tmux capture-pane -p -S 0 -t WGCT-Solidity:0.1
 ```
 
@@ -157,10 +156,16 @@ ssh -i ~/.ssh/id_rsa.vagrant -p 2222 vagrant@127.0.0.1 -R 2000:localhost:2000
 | mintty | mintty |          |       |           |        |     |             |
 |        |        |          |       |           |        |     |             |
 +-----------------+          +-------+           +--------+     +-------------+
-| 5000   | 5000   | -------> | 10100 | --------> | 22     | --> |    2222     | (terminal tunnel)
+| 5000   | 5000   | -------> | 10100 | --------> | 22     | --> |    2222     | (ssh)
 +-----------------+          +-------+           +--------+     +-------------+
-| 2000   | 2000   | <--------------------------- | 2000   | <-- |    2000     | (clipboard tunnel)
+| 2000   | 2000   | <--------------------------- | 2000   | <-- |    2000     | (clipboard)
 +--------+--------+                              +--------+     +-------------+
+| 3306   | 3306   | ---------------------------> | 3306   | --> |    33060    | (db) 
++--------+--------+                              +--------+     +-------------+     
+| 3308   | 3308   | ---------------------------> | 3308   | -+  
++--------+--------+                              +--------+  |  +-------------+     +---------+
+                                                             +> |  Web:33060  | --> | DB:3306 |
+                                                                +-------------+     +---------+
 ```
 [reference](https://superuser.com/questions/985807/set-up-direct-ssh-connection-from-a-to-c-without-public-ips-using-one-public-ssh)
 
