@@ -45,6 +45,7 @@ Plug 'kien/rainbow_parentheses.vim'   "| racket
 call plug#end()
 
 "" w0rp/ale: If encounting problems, debug with :ALEInfo command
+let g:ale_enabled = 0
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'php': ['php', 'phpcs'],
