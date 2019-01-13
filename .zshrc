@@ -144,3 +144,6 @@ alias ssh="ssh -o ServerAliveInterval=60"
 alias docker="sudo docker"
 alias xclip=xclip_$machine
 
+## Racket lang
+source /usr/share/racket/pkgs/shell-completion/racket-completion.zsh
+
