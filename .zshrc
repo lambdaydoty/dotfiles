@@ -11,7 +11,8 @@ export ZSH=$HOME/.oh-my-zsh
 # ZSH_THEME="agnoster"
 # ZSH_THEME="gallois"
 # ZSH_THEME="arrow"
-function test_vm() { grep hypervisor /proc/cpuinfo >/dev/null }
+function test_vm() { grep 'hypervisor' /proc/cpuinfo >/dev/null }
+function test_deb() { grep 'Debian' /etc/issue >/dev/null }
 case "${OSTYPE}" in
   linux*)   ZSH_THEME="gallois";;
   cygwin*)  ZSH_THEME="arrow";;
@@ -19,6 +20,7 @@ case "${OSTYPE}" in
   *)        ;;
 esac
 test_vm  && ZSH_THEME="lambda" # For vm specifically
+test_deb && ZSH_THEME="agnoster" # For (GoogleVM) potentia-dev
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -123,18 +125,19 @@ fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
 # Multisystem
-unameOut="$(uname -s)"
-case "${unameOut}" in
-  Linux*)   machine=Linux;;
-  Darwin*)  machine=Mac;;
-  CYGWIN*)  machine=Cygwin;;
-  MINGW*)   machine=MinGw;;
-  *)        machine="UNKNOWN:${unameOut}"
-esac
-clipboard_daemon_port=2000
-alias xclip_Linux="nc -N localhost $clipboard_daemon_port"
-alias xclip_Cygwin=putclip
+# unameOut="$(uname -s)"
+# case "${unameOut}" in
+#   Linux*)   machine=Linux;;
+#   Darwin*)  machine=Mac;;
+#   CYGWIN*)  machine=Cygwin;;
+#   MINGW*)   machine=MinGw;;
+#   *)        machine="UNKNOWN:${unameOut}"
+# esac
+# clipboard_daemon_port=2000
+# alias xclip_Linux="nc -N localhost $clipboard_daemon_port"
+# alias xclip_Cygwin=putclip
 # echo ${machine}
+# alias xclip=xclip_$machine
 
 ## Aliases
 source_if_possible ~/.bash_aliases
@@ -142,8 +145,7 @@ source_if_possible ~/.profile
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias ssh="ssh -o ServerAliveInterval=60"
 alias docker="sudo docker"
-alias xclip=xclip_$machine
 
 ## Racket lang
-source /usr/share/racket/pkgs/shell-completion/racket-completion.zsh
+source_if_possible /usr/share/racket/pkgs/shell-completion/racket-completion.zsh
 
