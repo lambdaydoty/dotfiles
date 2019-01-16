@@ -145,6 +145,7 @@ source_if_possible ~/.profile
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias ssh="ssh -o ServerAliveInterval=60"
 alias docker="sudo docker"
+alias jq="jq -C"
 
 ## Racket lang
 source_if_possible /usr/share/racket/pkgs/shell-completion/racket-completion.zsh
