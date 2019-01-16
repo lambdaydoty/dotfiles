@@ -19,7 +19,7 @@ watch -n0 tmux capture-pane -p -S 0 -t WGCT-Solidity:0.1
 * Reference: https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
 * Intallaion dotfiles onto a new system
 
-```
+```bash
 cd $HOME
 echo ".cfg" >> .gitignore
 git clone --bare https://github.com/lambdaydoty/dotfiles.git $HOME/.cfg
@@ -38,6 +38,25 @@ config status
 config push -u origin master
 ```
 
+Vim
+```bash
+#vim: PlugClean
+#vim: PlugInstall
+config st
+config reset --hard # update .vim/...
+```
+
+## Force update local repo
+(You have unmerged path. ....)
+```bash
+config br -a  # missing remotes/origin/master
+vim ~/.cfg/config
+# Add `fetch = +refs/heads/*:refs/remotes/origin/*` to `[remote "origin"]` item
+config fetch -all
+config br -a 
+config reset --hard origin/master
+```
+
 ## New git project
 ```
 touch .gitignore README.md
@@ -54,17 +73,14 @@ git co -b dev
 ## SSH (to repos)
 ```bash
 ## 1. Gnerating a new SSH key
-ssh-add -l
 mygithubid="lambdaydoty"
 mygithubmail="euphrates.tigris@gmail.com"
 mysshkey="$HOME/.ssh/id_rsa.github.$mygithubid"
-mypass=""
-ssh-keygen -t rsa -b 4096 -C $mygithubmail -N $mypass -f $mysshkey
-ssh-add $mysshkey
-ssh-add -l
+ssh-keygen -t rsa -b 4096 -C $mygithubmail -f $mysshkey
+ssh-add $mysshkey; ssh-add -l
 
 ## 2. Adding the public key to Github
-cat "$mysshkey.pub" > /dev/clipboard
+cat "$mysshkey.pub" | xclip
 # Github: Settings -> SSH and GPG Keys -> New SSh key (Title = x200/Babun)
 
 ## 3. Add remote upstream
