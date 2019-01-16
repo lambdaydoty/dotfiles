@@ -19,7 +19,7 @@ watch -n0 tmux capture-pane -p -S 0 -t WGCT-Solidity:0.1
 * Reference: https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
 * Intallaion dotfiles onto a new system
 
-```
+```bash
 cd $HOME
 echo ".cfg" >> .gitignore
 git clone --bare https://github.com/lambdaydoty/dotfiles.git $HOME/.cfg
@@ -36,6 +36,14 @@ config remote set-url origin git@github.com-lambdaydoty:lambdaydoty/dotfiles
 config status
 # sed -i -e 's/lambda/babun/g' ~/.zshrc
 config push -u origin master
+```
+
+Vim
+```bash
+#vim: PlugClean
+#vim: PlugInstall
+config st
+config reset --hard # update .vim/...
 ```
 
 ## Force update local repo
