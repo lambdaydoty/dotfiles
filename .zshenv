@@ -8,11 +8,13 @@ case "${OSTYPE}" in
   *)        ;;
 esac
 
-case $(cat /etc/issue | head -n1) in
-  Debian*)  ;;
-  Ubuntu*)  ;;
-  *)        ;;
-esac
+if [ -f /etc/issue ]; then
+  case $(cat /etc/issue | head -n1) in
+    Debian*)  ;;
+    Ubuntu*)  ;;
+    *)        ;;
+  esac
+fi
 
 alias art=artisan
 alias phpunit='vendor/bin/phpunit'

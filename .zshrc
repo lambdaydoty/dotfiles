@@ -12,7 +12,7 @@ export ZSH=$HOME/.oh-my-zsh
 # ZSH_THEME="gallois"
 # ZSH_THEME="arrow"
 function test_vm() { grep 'hypervisor' /proc/cpuinfo >/dev/null }
-function test_deb() { grep 'Debian' /etc/issue >/dev/null }
+function test_deb() { [ -f /etc/issue ] && grep 'Debian' /etc/issue >/dev/null }
 case "${OSTYPE}" in
   linux*)   ZSH_THEME="gallois";;
   cygwin*)  ZSH_THEME="arrow";;
