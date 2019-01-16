@@ -46,6 +46,11 @@ config st
 config reset --hard # update .vim/...
 ```
 
+Deiban
+```bash
+sudo apt-get install netcat-openbsd less
+```
+
 ## Force update local repo
 (You have unmerged path. ....)
 ```bash
