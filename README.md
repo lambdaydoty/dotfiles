@@ -37,6 +37,12 @@ config status
 # sed -i -e 's/lambda/babun/g' ~/.zshrc
 config push -u origin master
 ```
+.ssh/config
+```
+unzip .ssh/config-chmod600.zip
+chmod 600 .ssh/config
+zip -e ./.ssh/config-chmod600.zip ./.ssh/config
+```
 
 Vim
 ```bash
