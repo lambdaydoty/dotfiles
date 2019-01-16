@@ -2,7 +2,12 @@ clipboard_daemon_port=2000
 
 # Multisystem
 case "${OSTYPE}" in
-  linux*)   alias xclip="nc -N localhost $clipboard_daemon_port";;
+  linux*)
+    case $(cat /etc/issue | head -n1) in
+      Debian*)  alias xclip="nc -q0 localhost $clipboard_daemon_port";;
+      Ubuntu*)  alias xclip="nc -N localhost $clipboard_daemon_port";;
+    esac
+    ;;
   cygwin*)  alias xclip=putclip;;
   win*)     ;;
   *)        ;;
