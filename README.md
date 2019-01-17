@@ -2,16 +2,10 @@
 
 ## Working Cheatsheet
 ```bash
-# A
-./clipboard-daemon.sh & ./privatekeys-adder.sh
-ssh -fN ntucsie
+./clipboard-daemon.sh&; ./ssh-adder.sh
+ssh ntucsie -fN
 ssh ubuntuX230
-
-# C
 tmux attach
-
-# watch tmux-pane! ## TODO pack it into bash function... [seesion:win:pane]
-watch -n0 tmux capture-pane -p -S 0 -t WGCT-Solidity:0.1
 ```
 
 ## Installation
@@ -24,43 +18,33 @@ cd $HOME
 echo ".cfg" >> .gitignore
 git clone --bare https://github.com/lambdaydoty/dotfiles.git $HOME/.cfg
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-config checkout
-config status
-# mv .zshrc .zshrc.bak
+mv .zshrc .zshrc.bak
 # mv .gitconfig .gitconfig.bak
 config checkout
 config config --local status.showUntrackedFiles no
 config config --local user.email "euphrates.tigris@gmail.com"
 config config --local user.name "lambdaydoty"
 config remote set-url origin git@github.com-lambdaydoty:lambdaydoty/dotfiles
-config status
-# sed -i -e 's/lambda/babun/g' ~/.zshrc
 config push -u origin master
 ```
 .ssh/config
 ```
-unzip .ssh/config-chmod600.zip
-chmod 600 .ssh/config
+unzip .ssh/config-chmod600.zip; chmod 600 .ssh/config
 zip -e ./.ssh/config-chmod600.zip ./.ssh/config
 ```
 
-Vim
+Others
 ```bash
 #vim: PlugClean
 #vim: PlugInstall
 config st
 config reset --hard # update .vim/...
-```
 
-Deiban
-```bash
+#debian
 sudo apt-get install netcat-openbsd less
-```
 
-Oh-my-zsh
-```bash
+#Oh-my-zsh
 cd ~/.oh-my-zsh/custom/plugins; git clone https://github.com/zsh-users/zsh-syntax-highlighting
-cd ~/.oh-my-zsh/custom/plugins; git clone https://github.com/zsh-users/zsh-autosuggestions
 ```
 
 ## Force update local repo
@@ -201,6 +185,12 @@ ssh -i ~/.ssh/id_rsa.vagrant -p 2222 vagrant@127.0.0.1 -R 2000:localhost:2000
                                                                 +-------------+     +---------+
 ```
 [reference](https://superuser.com/questions/985807/set-up-direct-ssh-connection-from-a-to-c-without-public-ips-using-one-public-ssh)
+
+## Bash tips
+```bash
+watch -n0 tmux capture-pane -e -p -S 0 -t WGCT-Solidity:0.1
+echo file_{a,b,c} | xargs -n1 | xargs -I % echo "% %"
+```
 
 ## MS-Windows
 
