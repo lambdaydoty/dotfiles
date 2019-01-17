@@ -57,6 +57,12 @@ Deiban
 sudo apt-get install netcat-openbsd less
 ```
 
+Oh-my-zsh
+```bash
+cd ~/.oh-my-zsh/custom/plugins; git clone https://github.com/zsh-users/zsh-syntax-highlighting
+cd ~/.oh-my-zsh/custom/plugins; git clone https://github.com/zsh-users/zsh-autosuggestions
+```
+
 ## Force update local repo
 (You have unmerged path. ....)
 ```bash
