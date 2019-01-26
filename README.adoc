@@ -1,8 +1,8 @@
-# dotfiles
-
 :toc:
 
-## Working Cheatsheet
+# dotfiles
+
+## Getting Started
 ```bash
 ./clipboard-daemon.sh&; ./ssh-adder.sh
 ssh ntucsie -fN
@@ -12,8 +12,7 @@ tmux attach
 
 ## Installation
 
-* Reference: https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
-* Intallaion dotfiles onto a new system
+* Intallaion dotfiles onto a new system https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/[Reference]
 
 ```bash
 cd $HOME
@@ -186,7 +185,7 @@ ssh -i ~/.ssh/id_rsa.vagrant -p 2222 vagrant@127.0.0.1 -R 2000:localhost:2000
                                                              +> |  Web:33060  | --> | DB:3306 |
                                                                 +-------------+     +---------+
 ```
-[reference](https://superuser.com/questions/985807/set-up-direct-ssh-connection-from-a-to-c-without-public-ips-using-one-public-ssh)
+https://superuser.com/questions/985807/set-up-direct-ssh-connection-from-a-to-c-without-public-ips-using-one-public-ssh
 
 ## Bash tips
 ```bash
@@ -258,5 +257,11 @@ share demo.test \
 ```
 
 ### Reference
-* [SSH@DigitalOcean](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys) [AddSSH@Github](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/) [GenSSH@Github](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
-* [Cmder:Wiki](https://github.com/cmderdev/cmder/wiki) [ConEmu:Doc](https://conemu.github.io/en/) [Babun:Wiki](https://github.com/babun/babun/wiki) [Babun:Doc](http://babun.github.io/development.html) [Babun:Faq](http://babun.github.io/faq.html)
+* https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys[SSH@DigitalOcean] 
+* https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/[AddSSH@Github]
+* https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/[GenSSH@Github]
+* https://github.com/cmderdev/cmder/wiki[Cmder:Wiki]
+* https://conemu.github.io/en/[ConEmu:Doc]
+* https://github.com/babun/babun/wiki[Babun:Wiki]
+* http://babun.github.io/development.html[Babun:Doc]
+* http://babun.github.io/faq.html[Babun:Faq]
