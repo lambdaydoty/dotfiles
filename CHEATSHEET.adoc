@@ -45,7 +45,9 @@ y          # Copy selection (to buffer & xclip) and quit
 ```
 
 ## Git
-
+* https://saintgimp.org/2013/01/22/merging-two-git-repositories-into-one-repository-without-losing-file-history/[Merge two git repos]
+* http://ndpsoftware.com/git-cheatsheet.html[Visual git cheatsheet]
+* http://justinhileman.info/article/git-pretty/[Git mess flowchart]
 
 
 ## References
