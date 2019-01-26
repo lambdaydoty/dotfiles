@@ -1,6 +1,8 @@
-# CHEATSHEET
+:toc: macro
+:toc-title:
+:toclevels: 99
 
-:TOC:
+# CHEATSHEET
 
 ## Tmux
 
@@ -50,6 +52,6 @@ y          # Copy selection (to buffer & xclip) and quit
 
 ## References
 
-[4e00/tmux](http://www.4e00.com/tools/tmux-cheatsheet.html)
-[4e00/git](http://www.4e00.com/tools/git-cheatsheet.html#loc=workspace;)
+* http://www.4e00.com/tools/tmux-cheatsheet.html[4e00/tmux]
+* http://www.4e00.com/tools/git-cheatsheet.html#loc=workspace;[4e00/git]
 
