@@ -1,5 +1,7 @@
 # dotfiles
 
+:toc:
+
 ## Working Cheatsheet
 ```bash
 ./clipboard-daemon.sh&; ./ssh-adder.sh
@@ -54,7 +56,7 @@ config br -a  # missing remotes/origin/master
 vim ~/.cfg/config
 # Add `fetch = +refs/heads/*:refs/remotes/origin/*` to `[remote "origin"]` item
 config fetch -all
-config br -a 
+config br -a
 config reset --hard origin/master
 ```
 
@@ -153,7 +155,7 @@ ssh-copy-id -i "$mysshkey.pub" b92028@linux1.csie.ntu.edu.tw
 
 ### Connections
 ```bash
-# In local client C 
+# In local client C
 ssh -R 10100:localhost:22 ntucsie
 # In local client A (background tab)
 ssh -L 5000:localhost:10100 ntucsie
@@ -177,9 +179,9 @@ ssh -i ~/.ssh/id_rsa.vagrant -p 2222 vagrant@127.0.0.1 -R 2000:localhost:2000
 +-----------------+          +-------+           +--------+     +-------------+
 | 2000   | 2000   | <--------------------------- | 2000   | <-- |    2000     | (clipboard)
 +--------+--------+                              +--------+     +-------------+
-| 3306   | 3306   | ---------------------------> | 3306   | --> |    33060    | (db) 
-+--------+--------+                              +--------+     +-------------+     
-| 3308   | 3308   | ---------------------------> | 3308   | -+  
+| 3306   | 3306   | ---------------------------> | 3306   | --> |    33060    | (db)
++--------+--------+                              +--------+     +-------------+
+| 3308   | 3308   | ---------------------------> | 3308   | -+
 +--------+--------+                              +--------+  |  +-------------+     +---------+
                                                              +> |  Web:33060  | --> | DB:3306 |
                                                                 +-------------+     +---------+
@@ -202,11 +204,11 @@ echo file_{a,b,c} | xargs -n1 | xargs -I % echo "% %"
 ## 2. Bring up Chocolatey+Cmder [PS@Adminl
 $PSVersionTable.PSVersionu
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-choco --version 
+choco --version
 choco install -y cmder # -> RESTART WIN
 
 ## 3. Bring up Chrome, ... [PS/Cmder]
-csudo choco install -y googlechrome firefox 7zip.install imdisk openvpn 
+csudo choco install -y googlechrome firefox 7zip.install imdisk openvpn
 csudo choco install -y foxitreader pdf24
 csudo choco install -y itunes gpg4win teamviewer smplayer autohotkey
 
