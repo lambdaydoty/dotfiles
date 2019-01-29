@@ -78,3 +78,7 @@ set lispwords-=if
 
 "" vimdiff
 au BufEnter,BufNew * if &diff | syntax off | else | syntax on | endif
+
+"" close quickfix window
+nnoremap <F2> :cclose<CR>
+

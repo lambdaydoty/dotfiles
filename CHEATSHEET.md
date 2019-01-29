@@ -1,6 +1,9 @@
-:toc:
-
 # CHEATSHEET
+
+- [CHEATSHEET](#cheatsheet)
+  * [Tmux](#tmux)
+  * [Git](#git)
+  * [References](#references)
 
 ## Tmux
 
@@ -45,13 +48,12 @@ y          # Copy selection (to buffer & xclip) and quit
 ```
 
 ## Git
-* https://saintgimp.org/2013/01/22/merging-two-git-repositories-into-one-repository-without-losing-file-history/[Merge two git repos]
-* http://ndpsoftware.com/git-cheatsheet.html[Visual git cheatsheet]
-* http://justinhileman.info/article/git-pretty/[Git mess flowchart]
+* https://saintgimp.org/2013/01/22/merging-two-git-repositories-into-one-repository-without-losing-file-history/
+* http://ndpsoftware.com/git-cheatsheet.html
+* http://justinhileman.info/article/git-pretty/
 
 
 ## References
 
-* http://www.4e00.com/tools/tmux-cheatsheet.html[4e00/tmux]
-* http://www.4e00.com/tools/git-cheatsheet.html#loc=workspace;[4e00/git]
+* [4e00/tmux](http://www.4e00.com/tools/tmux-cheatsheet.html)
 

@@ -1,18 +1,40 @@
-:toc:
-
 # dotfiles
+
+- [dotfiles](#dotfiles)
+  * [Getting Started](#getting-started)
+  * [Installation](#installation)
+  * [Force update local repo](#force-update-local-repo)
+  * [New git project](#new-git-project)
+  * [SSH (to repos)](#ssh--to-repos-)
+  * [Minimality packages](#minimality-packages)
+  * [SSH Server](#ssh-server)
+    + [Server side](#server-side)
+    + [Client side](#client-side)
+  * [SSH over a public server B (+clipboard)](#ssh-over-a-public-server-b---clipboard-)
+    + [Preparation](#preparation)
+    + [Connections](#connections)
+  * [Bash tips](#bash-tips)
+  * [MS-Windows](#ms-windows)
+    + [Instructions](#instructions)
+    + [Babun/Cygwin](#babun-cygwin)
+    + [Cmder/ConEmu with Babun](#cmder-conemu-with-babun)
+    + [Ngrok](#ngrok)
+    + [Reference](#reference)
 
 ## Getting Started
 ```bash
-./clipboard-daemon.sh&; ./ssh-adder.sh
+./clipboard-daemon.sh& ; ./ssh-adder.sh
 ssh ntucsie -fN
 ssh ubuntuX230
-tmux attach
+
+tmux a
 ```
 
 ## Installation
 
-* Intallaion dotfiles onto a new system https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/[Reference]
+* Intallaion dotfiles onto a new system [Reference](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/)
+
+Basic
 
 ```bash
 cd $HOME
@@ -27,24 +49,23 @@ config config --local user.email "euphrates.tigris@gmail.com"
 config config --local user.name "lambdaydoty"
 config remote set-url origin git@github.com-lambdaydoty:lambdaydoty/dotfiles
 config push -u origin master
-```
-.ssh/config
-```
+
+## .ssh/config
 unzip .ssh/config-chmod600.zip; chmod 600 .ssh/config
 zip -e ./.ssh/config-chmod600.zip ./.ssh/config
 ```
 
 Others
 ```bash
-#vim: PlugClean
-#vim: PlugInstall
+## goto-vim: PlugClean
+## goto-vim: PlugInstall
 config st
 config reset --hard # update .vim/...
 
-#debian
+## debian
 sudo apt-get install netcat-openbsd less
 
-#Oh-my-zsh
+## Oh-my-zsh
 cd ~/.oh-my-zsh/custom/plugins; git clone https://github.com/zsh-users/zsh-syntax-highlighting
 ```
 
@@ -92,7 +113,6 @@ config push -u origin master
 
 ## Minimality packages
 ```bash
-
 ## The Vim:
 # come with system clipboard
 vim --version | grep clip --color
@@ -257,11 +277,11 @@ share demo.test \
 ```
 
 ### Reference
-* https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys[SSH@DigitalOcean] 
-* https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/[AddSSH@Github]
-* https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/[GenSSH@Github]
-* https://github.com/cmderdev/cmder/wiki[Cmder:Wiki]
-* https://conemu.github.io/en/[ConEmu:Doc]
-* https://github.com/babun/babun/wiki[Babun:Wiki]
-* http://babun.github.io/development.html[Babun:Doc]
-* http://babun.github.io/faq.html[Babun:Faq]
+* [SSH@DigitalOcean](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)
+* [AddSSH@Github](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)
+* [GenSSH@Github](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
+* [Cmder:Wiki](https://github.com/cmderdev/cmder/wiki)
+* [ConEmu:Doc](https://conemu.github.io/en/)
+* [Babun:Wiki](https://github.com/babun/babun/wiki)
+* [Babun:Doc](http://babun.github.io/development.html)
+* [Babun:Faq](http://babun.github.io/faq.html)
