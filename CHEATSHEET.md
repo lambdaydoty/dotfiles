@@ -4,6 +4,7 @@
   * [Markdown](#markdown)
   * [Tmux](#tmux)
   * [Git](#git)
+  * [Bash](#bash)
   * [References](#references)
 
 ## Markdown
@@ -56,6 +57,9 @@ y          # Copy selection (to buffer & xclip) and quit
 * http://ndpsoftware.com/git-cheatsheet.html
 * http://justinhileman.info/article/git-pretty/
 
+## Bash
+* https://devhints.io/bash
+* http://matt.might.net/articles/bash-by-example/
 
 ## References
 
