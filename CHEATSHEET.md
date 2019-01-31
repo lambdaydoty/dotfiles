@@ -68,4 +68,9 @@ y          # Copy selection (to buffer & xclip) and quit
 
 ## Misc.
 
+
 ![](https://i.imgur.com/uy28G0K.png)
+
+![](https://i.imgur.com/eMnCW1J.png)
+
+
