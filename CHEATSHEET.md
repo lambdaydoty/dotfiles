@@ -6,6 +6,7 @@
   * [Git](#git)
   * [Bash](#bash)
   * [References](#references)
+  * [Misc.](#misc)
 
 ## Markdown
   * https://ecotrust-canada.github.io/markdown-toc/
@@ -65,3 +66,6 @@ y          # Copy selection (to buffer & xclip) and quit
 
 * [4e00/tmux](http://www.4e00.com/tools/tmux-cheatsheet.html)
 
+## Misc.
+
+![](https://i.imgur.com/uy28G0K.png)
