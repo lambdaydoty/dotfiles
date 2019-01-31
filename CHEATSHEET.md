@@ -59,6 +59,10 @@ y          # Copy selection (to buffer & xclip) and quit
 * http://justinhileman.info/article/git-pretty/
 
 ## Bash
+```bash
+## Oh-my-zsh
+alias | grep 'git add'
+```
 * https://devhints.io/bash
 * http://matt.might.net/articles/bash-by-example/
 
