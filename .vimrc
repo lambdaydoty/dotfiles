@@ -42,6 +42,7 @@ Plug 'rayburgemeestre/phpfolding.vim' "| php folding
 Plug 'benmills/vimux'                 "| tmux
 Plug 'wlangstroth/vim-racket'         "| racket
 Plug 'kien/rainbow_parentheses.vim'   "| racket
+Plug 'alx741/vinfo'                   "| GNU Texinfo
 call plug#end()
 
 "" w0rp/ale: If encounting problems, debug with :ALEInfo command
