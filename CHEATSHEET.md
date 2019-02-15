@@ -62,6 +62,8 @@ y          # Copy selection (to buffer & xclip) and quit
 ```bash
 ## Oh-my-zsh
 alias | grep 'git add'
+## Bash
+tree -L 2
 ```
 * https://devhints.io/bash
 * http://matt.might.net/articles/bash-by-example/
