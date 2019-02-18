@@ -5,6 +5,7 @@
   * [Tmux](#tmux)
   * [Git](#git)
   * [Bash](#bash)
+  * [Docker](#docker)
   * [References](#references)
   * [Misc.](#misc)
 
