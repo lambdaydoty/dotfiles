@@ -68,6 +68,14 @@ tree -L 2
 * https://devhints.io/bash
 * http://matt.might.net/articles/bash-by-example/
 
+## Docker
+```bash
+## Add docker group permission
+sudo gpasswd -a $USER docker
+newgrp docker
+docker run hello-world
+```
+
 ## References
 
 * [4e00/tmux](http://www.4e00.com/tools/tmux-cheatsheet.html)
