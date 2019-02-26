@@ -70,13 +70,21 @@ tree -L 2
 * http://matt.might.net/articles/bash-by-example/
 
 ## Docker
-```bash
-## Add docker group permission
-sudo groupadd docker          # create a new group named `docker`
-sudo gpasswd -a $USER docker  # add current user to the group
-newgrp docker                 # apply the new group
-docker run hello-world
-```
+
+* Prepare
+  ```bash
+  ## Add docker group permission
+  sudo groupadd docker          # create a new group named `docker`
+  sudo gpasswd -a $USER docker  # add current user to the group
+  newgrp docker                 # apply the new group
+  docker run hello-world
+  ```
+* Operate
+  ```bash
+  docker run --rm --net <network> -v "`pwd`/tests:/app/tests" <image> -t tests/testFile.js
+  docker run --rm -it <image> bash
+  docker build --no-cache -f <Dockerfile> -t <image> .
+  ```
 
 ## References
 
