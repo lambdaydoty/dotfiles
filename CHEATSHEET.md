@@ -81,6 +81,7 @@ tree -L 2
   ```
 * Operate
   ```bash
+  Dispatch docker run --rm --net my-mongo-cluster -v "`pwd`/tests:/app/tests" xtest -t %
   docker run --rm --net <network> -v "`pwd`/tests:/app/tests" <image> -t tests/testFile.js
   docker run --rm -it <image> bash
   docker build --no-cache -f <Dockerfile> -t <image> .
