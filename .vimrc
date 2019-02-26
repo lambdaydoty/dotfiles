@@ -43,6 +43,8 @@ Plug 'benmills/vimux'                 "| tmux
 Plug 'wlangstroth/vim-racket'         "| racket
 Plug 'kien/rainbow_parentheses.vim'   "| racket
 Plug 'alx741/vinfo'                   "| GNU Texinfo
+Plug 'chrisbra/Colorizer'             "| ANSI colours
+Plug 'drmingdrmer/vim-toggle-quickfix'
 call plug#end()
 
 "" w0rp/ale: If encounting problems, debug with :ALEInfo command
@@ -81,5 +83,6 @@ set lispwords-=if
 au BufEnter,BufNew * if &diff | syntax off | else | syntax on | endif
 
 "" close quickfix window
-nnoremap <F2> :cclose<CR>
+" nnoremap <F2> :cclose<CR>
+nmap <F2> <Plug>window:quickfix:toggle
 
