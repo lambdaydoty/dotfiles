@@ -72,8 +72,9 @@ tree -L 2
 ## Docker
 ```bash
 ## Add docker group permission
-sudo gpasswd -a $USER docker
-newgrp docker
+sudo groupadd docker          # create a new group named `docker`
+sudo gpasswd -a $USER docker  # add current user to the group
+newgrp docker                 # apply the new group
 docker run hello-world
 ```
 
