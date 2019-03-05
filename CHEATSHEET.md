@@ -87,6 +87,31 @@ tree -L 2
   docker build --no-cache -f <Dockerfile> -t <image> .
   ```
 
+* Replica
+  * Bring up mongod*:
+    ```bash
+    docker run -d \
+    -p 3000*:27017 \
+    --name mongo* \
+    --net my-mongo-cluster \
+    mongo mongod --replSet my-mongo-set
+    ```
+  * Bring up replica:
+    ```bash
+    docker exec -it mongo1 mongo
+    ```
+    ```js
+    db = (new Mongo('localhost:27017')).getDB('test')
+    config = {
+      "_id" : "my-mongo-set",
+      "members" : [
+        { "_id" : 0, "host" : "mongo1:27017" },
+        { "_id" : 1, "host" : "mongo2:27017" },
+        { "_id" : 2, "host" : "mongo3:27017" }
+      ]
+    }
+    rs.initiate(config)
+    ```
 ## References
 
 * [4e00/tmux](http://www.4e00.com/tools/tmux-cheatsheet.html)
