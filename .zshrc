@@ -145,6 +145,7 @@ autoload -Uz compinit && compinit -i
 ## Aliases
 source_if_possible ~/.bash_aliases
 source_if_possible ~/.profile
+source_if_possible ~/.docker_aliases
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias ssh="ssh -o ServerAliveInterval=60"
 alias jq="jq -C"

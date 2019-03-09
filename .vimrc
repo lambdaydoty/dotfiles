@@ -45,6 +45,8 @@ Plug 'kien/rainbow_parentheses.vim'   "| racket
 Plug 'alx741/vinfo'                   "| GNU Texinfo
 Plug 'chrisbra/Colorizer'             "| ANSI colours
 Plug 'drmingdrmer/vim-toggle-quickfix'
+Plug 'ekalinin/Dockerfile.vim'        "| docker
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 "" w0rp/ale: If encounting problems, debug with :ALEInfo command
