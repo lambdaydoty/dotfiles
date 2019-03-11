@@ -32,42 +32,45 @@ tmux a
 
 ## Installation
 
-* Intallaion dotfiles onto a new system [Reference](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/)
-
-Basic
-
-```bash
-cd $HOME
-echo ".cfg" >> .gitignore
-git clone --bare https://github.com/lambdaydoty/dotfiles.git $HOME/.cfg
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-mv .zshrc .zshrc.bak
-# mv .gitconfig .gitconfig.bak
-config checkout
-config config --local status.showUntrackedFiles no
-config config --local user.email "euphrates.tigris@gmail.com"
-config config --local user.name "lambdaydoty"
-config remote set-url origin git@github.com-lambdaydoty:lambdaydoty/dotfiles
-config push -u origin master
-
-## .ssh/config
-unzip .ssh/config-chmod600.zip; chmod 600 .ssh/config
-zip -e ./.ssh/config-chmod600.zip ./.ssh/config
-```
-
-Others
-```bash
-## goto-vim: PlugClean
-## goto-vim: PlugInstall
-config st
-config reset --hard # update .vim/...
-
-## debian
-sudo apt-get install netcat-openbsd less
-
-## Oh-my-zsh
-cd ~/.oh-my-zsh/custom/plugins; git clone https://github.com/zsh-users/zsh-syntax-highlighting
-```
+1. Installation of git, zsh, oh-my-zsh
+   ```bash
+   echo $SHELL
+   sudo apt install -y zsh git
+   chsh -s $(which zsh)
+   sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+   ```
+2. Installation dotfiles onto a new system [Reference](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/)
+   ```bash
+   cd $HOME
+   echo ".cfg" >> .gitignore
+   git clone --bare https://github.com/lambdaydoty/dotfiles.git $HOME/.cfg
+   alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+   mv .zshrc .zshrc.bak
+   # mv .gitconfig .gitconfig.bak
+   config checkout
+   config config --local status.showUntrackedFiles no
+   config config --local user.email "euphrates.tigris@gmail.com"
+   config config --local user.name "lambdaydoty"
+   config remote set-url origin git@github.com-lambdaydoty:lambdaydoty/dotfiles
+   config push -u origin master
+   
+   ## .ssh/config
+   unzip .ssh/config-chmod600.zip; chmod 600 .ssh/config
+   zip -e ./.ssh/config-chmod600.zip ./.ssh/config
+   ```
+3. Installation of other packages
+   ```bash
+   ## goto-vim: PlugClean
+   ## goto-vim: PlugInstall
+   config st
+   config reset --hard # update .vim/...
+   
+   ## debian
+   sudo apt-get install netcat-openbsd less
+   
+   ## Oh-my-zsh
+   cd ~/.oh-my-zsh/custom/plugins; git clone https://github.com/zsh-users/zsh-syntax-highlighting
+   ```
 
 ## Force update local repo
 (You have unmerged path. ....)
