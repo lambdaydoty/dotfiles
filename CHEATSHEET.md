@@ -13,6 +13,7 @@
 ## Vim
   * select text till line-end without the newline `vg_`
   * delete text till line-end without the newline `dg_`
+  * 將某行 statement 放進`;()`中：`^dg_` `a` `;()` `<c-r>"`
 ## Markdown
   * https://ecotrust-canada.github.io/markdown-toc/
 
