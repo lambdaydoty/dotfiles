@@ -47,6 +47,7 @@ Plug 'chrisbra/Colorizer'             "| ANSI colours
 Plug 'drmingdrmer/vim-toggle-quickfix'
 Plug 'ekalinin/Dockerfile.vim'        "| docker
 Plug 'jiangmiao/auto-pairs'
+Plug 'joom/latex-unicoder.vim'
 call plug#end()
 
 "" w0rp/ale: If encounting problems, debug with :ALEInfo command
@@ -86,5 +87,14 @@ au BufEnter,BufNew * if &diff | syntax off | else | syntax on | endif
 
 "" close quickfix window
 " nnoremap <F2> :cclose<CR>
-nmap <F2> <Plug>window:quickfix:toggle
+nmap<F2> <Plug>window:quickfix:toggle
+inoremap<F3> <Esc>:w<CR>:Dispatch racket %<CR>
+nnoremap<F3> <Esc>:w<CR>:Dispatch racket %<CR>
 
+"" joom/latex
+let g:unicoder_cancel_normal = 1
+let g:unicoder_cancel_insert = 1
+let g:unicoder_cancel_visual = 1
+nnoremap <C-x> :call unicoder#start(0)<CR>
+inoremap <C-x> <Esc>:call unicoder#start(1)<CR>
+vnoremap <C-x> :<C-u>call unicoder#selection()<CR>
