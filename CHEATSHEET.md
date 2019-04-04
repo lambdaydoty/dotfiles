@@ -10,7 +10,7 @@
   * [References](#references)
   * [Misc.](#misc)
   * [Mongo-Replica](#mongo-replica)
-  * [NodeProject-BringUp](#nodeproject-pringup)
+  * [NodeProject-BringUp](#nodeproject-bringup)
 
 ## Vim
   * select text till line-end without the newline `vg_`
