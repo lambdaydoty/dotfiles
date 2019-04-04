@@ -10,6 +10,7 @@
   * [References](#references)
   * [Misc.](#misc)
   * [Mongo-Replica](#mongo-replica)
+  * [NodeProject-BringUp](#nodeproject-pringup)
 
 ## Vim
   * select text till line-end without the newline `vg_`
@@ -130,6 +131,29 @@ tree -L 2
   * .dockerignore: `!.env.test`
   * package.json: `scripts: { "xtest": "docker run --rm --network xmongo-cluster -v \"`pwd`/tests:/app/tests\" xtest" }`
   
+## NodeProject-BringUp
+```bash
+## New Project Workflow
+mkdir project-name
+cd project-name
+git init
+npm init
+npm install dotenv --save
+echo "node_modules/\n.env" > .gitignore
+git add package.json package-lock.json .gitignore
+git config --local user.email "euphrates.tigris@gmail.com"
+git config --local user.name "lambdaydoty"
+git ci -m "Initial commit"
+git remote add origin git@github.com-lambdaydoty:lambdaydoty/process.env.git
+git fetch
+git br --set-upstream-to=origin/master master
+git pull --allow-unrelated-histories
+```
+
+## process.env ref.
+* https://codeburst.io/process-env-what-it-is-and-why-when-how-to-use-it-effectively-505d0b2831e7
+
+```
 
 ## References
 
