@@ -129,7 +129,7 @@ tree -L 2
 * Other:
   * .env.test: `DB_URI=mongodb://xmong1,xmongo2,xmongo3/wallet-test?replicaSet=xmongo-set`
   * .dockerignore: `!.env.test`
-  * package.json: `scripts: { "xtest": "docker run --rm --network xmongo-cluster -v \"`pwd`/tests:/app/tests\" xtest" }`
+  * package.json: ``scripts: { "xtest": "docker run --rm --network xmongo-cluster -v \"`pwd`/tests:/app/tests\" xtest" }``
   
 ## NodeProject-BringUp
 ```bash
