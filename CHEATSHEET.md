@@ -94,6 +94,13 @@ tree -L 2
   docker run --rm -it <image> bash
   docker build --no-cache -f <Dockerfile> -t <image> .
   ```
+* Test environment
+  ```bash
+  docker run --env-file=.env.test
+  docker run -v .env.test:.env
+  docker run --rm --network xwallet-mongo-cluster -v "`pwd`/tests:/app/tests" xtest
+  docker run --rm --network xwallet-mongo-cluster -v "`pwd`:/app" --entrypoint "bash" xtest
+  ```
 
 ## Mongo-Replica
 
