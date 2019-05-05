@@ -17,6 +17,14 @@
   * select text till line-end without the newline `vg_`
   * delete text till line-end without the newline `dg_`
   * 將某行 statement 放進`;()`中：`^dg_` `a` `;()` `<c-r>"`
+  * Bash sourcing file: `~/.zshenv`
+  * Diff 2 opened windows in a pane: `windo diffthis` and end diff: `diffoff!`
+  * [Surround.vim](https://github.com/tpope/vim-surround)
+    1. operations: `y` for yank, `d` for delete, `c` for change
+    2. target: `S` for visual selection, `st` for surrounded tag, `siw` for inner word, `s'` for surrounded single quote, ...
+    3. for change & yank: `'`, `"`, `` ` ``, `[`, `]`, `<q>`, `{`, `}`, `(`, `)`,
+    4. examples, `ysiw}`, `VS}`, `ds]`
+    
 ## Markdown
   * https://ecotrust-canada.github.io/markdown-toc/
 
