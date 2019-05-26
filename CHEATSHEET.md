@@ -111,15 +111,36 @@ tree -L 2
   ```
 
 ## Mongo-Replica
-* One liner:
+* **One liner** (use the host network):
   ```bash
+  # mongos
   dkr -d --net=host --name db0 mongo mongod --replSet db --port 27017 --bind_ip_all; \
   dkr -d --net=host --name db1 mongo mongod --replSet db --port 27018 --bind_ip_all; \
   dkr -d --net=host --name db2 mongo mongod --replSet db --port 27019 --bind_ip_all; \
   sleep 3; \
   dke -it db0 mongo --eval 'config={"_id":"db","members":[{"_id":0,"host":"localhost:27017"},{"_id":1,"host":"localhost:27018"},{"_id":2,"host":"localhost:27019"}]}; rs.initiate(config)'
+  
+  # full node
+  dkr --rm -p 9999:9999 -v "`pwd`/.bitcoin:/root/.bitcoin" -it --name xomni xomnicore
   ```
-
+  .env:
+  ```
+  DB_URI='mongodb://localhost:27017,localhost:27018,localhost:27019/wallet-test?replicaSet=db'
+  BTC_HOST=localhost
+  USDT_URI=http://rpc:pass@localhost:9999
+  ```
+  jest test should be run sequentially as:
+  ```bash
+  npm test -- --runInBand
+  ```
+  jest.config.js:
+  ```js
+    setupFilesAfterEnv: [ './jest.setup.js' ],
+  ```
+  jest.setup.js:
+  ```js
+  jest.setTimeout(30000)
+  ```
 * Bring up mongod*:
   ```bash
   # docker network name: xmongo-cluster
