@@ -111,6 +111,14 @@ tree -L 2
   ```
 
 ## Mongo-Replica
+* One liner:
+  ```bash
+  dkr -d --net=host --name db0 mongo mongod --replSet db --port 27017 --bind_ip_all; \
+  dkr -d --net=host --name db1 mongo mongod --replSet db --port 27018 --bind_ip_all; \
+  dkr -d --net=host --name db2 mongo mongod --replSet db --port 27019 --bind_ip_all; \
+  sleep 3; \
+  dke -it db0 mongo --eval 'config={"_id":"db","members":[{"_id":0,"host":"localhost:27017"},{"_id":1,"host":"localhost:27018"},{"_id":2,"host":"localhost:27019"}]}; rs.initiate(config)'
+  ```
 
 * Bring up mongod*:
   ```bash
