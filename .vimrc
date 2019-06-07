@@ -87,5 +87,5 @@ set lispwords-=if
 au BufEnter,BufNew * if &diff | syntax off | else | syntax on | endif
 
 "" close quickfix window
-" nnoremap <F2> :cclose<CR>
 nmap <F2> <Plug>window:quickfix:toggle
+nnoremap <F3> <Esc>:w<CR>:Dispatch racket %<CR>
