@@ -145,10 +145,12 @@ autoload -Uz compinit && compinit -i
 ## Aliases
 source_if_possible ~/.bash_aliases
 source_if_possible ~/.profile
+source_if_possible ~/.docker_aliases
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias ssh="ssh -o ServerAliveInterval=60"
-alias docker="sudo docker"
 alias jq="jq -C"
+# alias docker="sudo docker"
+# alias docker-compose="sudo docker-compose"
 
 ## Racket lang
 source_if_possible /usr/share/racket/pkgs/shell-completion/racket-completion.zsh

@@ -1,67 +1,76 @@
 # dotfiles
 
-## Working Cheatsheet
+- [dotfiles](#dotfiles)
+  * [Getting Started](#getting-started)
+  * [Installation](#installation)
+  * [Force update local repo](#force-update-local-repo)
+  * [New git project](#new-git-project)
+  * [SSH (to repos)](#ssh--to-repos-)
+  * [Minimality packages](#minimality-packages)
+  * [SSH Server](#ssh-server)
+    + [Server side](#server-side)
+    + [Client side](#client-side)
+  * [SSH over a public server B (+clipboard)](#ssh-over-a-public-server-b---clipboard-)
+    + [Preparation](#preparation)
+    + [Connections](#connections)
+  * [Bash tips](#bash-tips)
+  * [MS-Windows](#ms-windows)
+    + [Instructions](#instructions)
+    + [Babun/Cygwin](#babun-cygwin)
+    + [Cmder/ConEmu with Babun](#cmder-conemu-with-babun)
+    + [Ngrok](#ngrok)
+    + [Reference](#reference)
+
+## Getting Started
 ```bash
-# A
-./clipboard-daemon.sh & ./privatekeys-adder.sh
-ssh -fN ntucsie
+./clipboard-daemon.sh& ; ./ssh-adder.sh
+ssh ntucsie -fN
 ssh ubuntuX230
 
-# C
-tmux attach
-
-# watch tmux-pane! ## TODO pack it into bash function... [seesion:win:pane]
-watch -n0 tmux capture-pane -p -S 0 -t WGCT-Solidity:0.1
+tmux a
 ```
 
 ## Installation
 
-* Reference: https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
-* Intallaion dotfiles onto a new system
-
-```bash
-cd $HOME
-echo ".cfg" >> .gitignore
-git clone --bare https://github.com/lambdaydoty/dotfiles.git $HOME/.cfg
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-config checkout
-config status
-# mv .zshrc .zshrc.bak
-# mv .gitconfig .gitconfig.bak
-config checkout
-config config --local status.showUntrackedFiles no
-config config --local user.email "euphrates.tigris@gmail.com"
-config config --local user.name "lambdaydoty"
-config remote set-url origin git@github.com-lambdaydoty:lambdaydoty/dotfiles
-config status
-# sed -i -e 's/lambda/babun/g' ~/.zshrc
-config push -u origin master
-```
-.ssh/config
-```
-unzip .ssh/config-chmod600.zip
-chmod 600 .ssh/config
-zip -e ./.ssh/config-chmod600.zip ./.ssh/config
-```
-
-Vim
-```bash
-#vim: PlugClean
-#vim: PlugInstall
-config st
-config reset --hard # update .vim/...
-```
-
-Deiban
-```bash
-sudo apt-get install netcat-openbsd less
-```
-
-Oh-my-zsh
-```bash
-cd ~/.oh-my-zsh/custom/plugins; git clone https://github.com/zsh-users/zsh-syntax-highlighting
-cd ~/.oh-my-zsh/custom/plugins; git clone https://github.com/zsh-users/zsh-autosuggestions
-```
+1. Installation of git, zsh, oh-my-zsh
+   ```bash
+   echo $SHELL
+   sudo apt install -y zsh git
+   chsh -s $(which zsh)
+   sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+   ```
+2. Installation dotfiles onto a new system [Reference](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/)
+   ```bash
+   cd $HOME
+   echo ".cfg" >> .gitignore
+   git clone --bare https://github.com/lambdaydoty/dotfiles.git $HOME/.cfg
+   alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+   mv .zshrc .zshrc.bak
+   # mv .gitconfig .gitconfig.bak
+   config checkout
+   config config --local status.showUntrackedFiles no
+   config config --local user.email "euphrates.tigris@gmail.com"
+   config config --local user.name "lambdaydoty"
+   config remote set-url origin git@github.com-lambdaydoty:lambdaydoty/dotfiles
+   config push -u origin master
+   
+   ## .ssh/config
+   unzip .ssh/config-chmod600.zip; chmod 600 .ssh/config
+   zip -e ./.ssh/config-chmod600.zip ./.ssh/config
+   ```
+3. Installation of other packages
+   ```bash
+   ## goto-vim: PlugClean
+   ## goto-vim: PlugInstall
+   config st
+   config reset --hard # update .vim/...
+   
+   ## debian
+   sudo apt-get install netcat-openbsd less
+   
+   ## Oh-my-zsh
+   cd ~/.oh-my-zsh/custom/plugins; git clone https://github.com/zsh-users/zsh-syntax-highlighting
+   ```
 
 ## Force update local repo
 (You have unmerged path. ....)
@@ -70,7 +79,7 @@ config br -a  # missing remotes/origin/master
 vim ~/.cfg/config
 # Add `fetch = +refs/heads/*:refs/remotes/origin/*` to `[remote "origin"]` item
 config fetch -all
-config br -a 
+config br -a
 config reset --hard origin/master
 ```
 
@@ -107,7 +116,6 @@ config push -u origin master
 
 ## Minimality packages
 ```bash
-
 ## The Vim:
 # come with system clipboard
 vim --version | grep clip --color
@@ -169,7 +177,7 @@ ssh-copy-id -i "$mysshkey.pub" b92028@linux1.csie.ntu.edu.tw
 
 ### Connections
 ```bash
-# In local client C 
+# In local client C
 ssh -R 10100:localhost:22 ntucsie
 # In local client A (background tab)
 ssh -L 5000:localhost:10100 ntucsie
@@ -193,14 +201,20 @@ ssh -i ~/.ssh/id_rsa.vagrant -p 2222 vagrant@127.0.0.1 -R 2000:localhost:2000
 +-----------------+          +-------+           +--------+     +-------------+
 | 2000   | 2000   | <--------------------------- | 2000   | <-- |    2000     | (clipboard)
 +--------+--------+                              +--------+     +-------------+
-| 3306   | 3306   | ---------------------------> | 3306   | --> |    33060    | (db) 
-+--------+--------+                              +--------+     +-------------+     
-| 3308   | 3308   | ---------------------------> | 3308   | -+  
+| 3306   | 3306   | ---------------------------> | 3306   | --> |    33060    | (db)
++--------+--------+                              +--------+     +-------------+
+| 3308   | 3308   | ---------------------------> | 3308   | -+
 +--------+--------+                              +--------+  |  +-------------+     +---------+
                                                              +> |  Web:33060  | --> | DB:3306 |
                                                                 +-------------+     +---------+
 ```
-[reference](https://superuser.com/questions/985807/set-up-direct-ssh-connection-from-a-to-c-without-public-ips-using-one-public-ssh)
+https://superuser.com/questions/985807/set-up-direct-ssh-connection-from-a-to-c-without-public-ips-using-one-public-ssh
+
+## Bash tips
+```bash
+watch -n0 tmux capture-pane -e -p -S 0 -t WGCT-Solidity:0.1
+echo file_{a,b,c} | xargs -n1 | xargs -I % echo "% %"
+```
 
 ## MS-Windows
 
@@ -212,11 +226,11 @@ ssh -i ~/.ssh/id_rsa.vagrant -p 2222 vagrant@127.0.0.1 -R 2000:localhost:2000
 ## 2. Bring up Chocolatey+Cmder [PS@Adminl
 $PSVersionTable.PSVersionu
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-choco --version 
+choco --version
 choco install -y cmder # -> RESTART WIN
 
 ## 3. Bring up Chrome, ... [PS/Cmder]
-csudo choco install -y googlechrome firefox 7zip.install imdisk openvpn 
+csudo choco install -y googlechrome firefox 7zip.install imdisk openvpn
 csudo choco install -y foxitreader pdf24
 csudo choco install -y itunes gpg4win teamviewer smplayer autohotkey
 
@@ -227,10 +241,10 @@ control imdisk.cpl # -> LOAD ISO & INSTALL IT
 Invoke-WebRequest -Uri 'https://sites.google.com/a/csie.ntu.edu.tw/ta221/download/config.ovpn?attredirects=0&d=1' -OutFile .\config.ovpn
 
 ## 6. Authenticate M$ [PS/Cmder]
-(Invoke-WebRequest -Uri 'https://api.ipify.org?format=json').content | jq '.ip'   # check ip
 csudo 'C:\Program Files\OpenVPN\bin\openvpn.exe' $HOME\config.ovpn
-csudo ~/.ms-auth/authorization-script-ntu-win7.bat
-csudo ~/.ms-auth/authorization-script-ntu-office16.bat
+(Invoke-WebRequest -Uri 'https://api.ipify.org?format=json').content | jq '.ip'   # check ip
+csudo "$Env:USERPROFILE\.babun\cygwin\home\$Env:USERNAME\.ms-auth\authorization-script-ntu-win7.bat
+csudo "$Env:USERPROFILE\.babun\cygwin\home\$Env:USERNAME\.ms-auth\authorization-script-ntu-office16.bat
 ```
 
 ### Babun/Cygwin
@@ -266,5 +280,11 @@ share demo.test \
 ```
 
 ### Reference
-* [SSH@DigitalOcean](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys) [AddSSH@Github](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/) [GenSSH@Github](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
-* [Cmder:Wiki](https://github.com/cmderdev/cmder/wiki) [ConEmu:Doc](https://conemu.github.io/en/) [Babun:Wiki](https://github.com/babun/babun/wiki) [Babun:Doc](http://babun.github.io/development.html) [Babun:Faq](http://babun.github.io/faq.html)
+* [SSH@DigitalOcean](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)
+* [AddSSH@Github](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)
+* [GenSSH@Github](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
+* [Cmder:Wiki](https://github.com/cmderdev/cmder/wiki)
+* [ConEmu:Doc](https://conemu.github.io/en/)
+* [Babun:Wiki](https://github.com/babun/babun/wiki)
+* [Babun:Doc](http://babun.github.io/development.html)
+* [Babun:Faq](http://babun.github.io/faq.html)

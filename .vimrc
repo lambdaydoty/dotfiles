@@ -31,8 +31,9 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'pangloss/vim-javascript'        "| js
 Plug 'w0rp/ale'                       "| async lint
-Plug 'tpope/vim-dispatch'             "| laravel
+Plug 'tpope/vim-dispatch'             "|
 Plug 'tpope/vim-projectionist'        "|
+Plug 'tpope/vim-surround'             "| (())
 Plug 'noahfrederick/vim-composer'     "|
 Plug 'noahfrederick/vim-laravel'
 Plug 'tomlion/vim-solidity'           "| solidity
@@ -42,6 +43,12 @@ Plug 'rayburgemeestre/phpfolding.vim' "| php folding
 Plug 'benmills/vimux'                 "| tmux
 Plug 'wlangstroth/vim-racket'         "| racket
 Plug 'kien/rainbow_parentheses.vim'   "| racket
+Plug 'alx741/vinfo'                   "| GNU Texinfo
+Plug 'chrisbra/Colorizer'             "| ANSI colours
+Plug 'drmingdrmer/vim-toggle-quickfix'
+Plug 'ekalinin/Dockerfile.vim'        "| docker
+Plug 'jiangmiao/auto-pairs'
+Plug 'simeji/winresizer'
 call plug#end()
 
 "" w0rp/ale: If encounting problems, debug with :ALEInfo command
@@ -78,3 +85,7 @@ set lispwords-=if
 
 "" vimdiff
 au BufEnter,BufNew * if &diff | syntax off | else | syntax on | endif
+
+"" close quickfix window
+nmap <F2> <Plug>window:quickfix:toggle
+nnoremap <F3> <Esc>:w<CR>:Dispatch racket %<CR>
