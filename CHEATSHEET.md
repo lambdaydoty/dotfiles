@@ -1,6 +1,7 @@
 # CHEATSHEET
 
 - [CHEATSHEET](#cheatsheet)
+  * [JavaScript](#javascript)
   * [Vim](#vim)
   * [Markdown](#markdown)
   * [Tmux](#tmux)
@@ -12,7 +13,8 @@
   * [Mongo-Replica](#mongo-replica)
   * [NodeProject-BringUp](#nodeproject-bringup)
   * [Ctag](#ctag)
-- JavaScript
+
+## JavaScript
   * FP:
     * [Thinking in Ramda](http://randycoulman.com/blog/categories/thinking-in-ramda/)
     * https://medium.com/free-code-camp/functional-programming-in-js-with-practical-examples-part-1-87c2b0dbc276#.fbgrmoa7g
