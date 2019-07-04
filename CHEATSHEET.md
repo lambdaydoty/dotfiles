@@ -15,12 +15,13 @@
   * [Ctag](#ctag)
 
 ## JavaScript
-  * FP:
+  * FP
     * [Thinking in Ramda](http://randycoulman.com/blog/categories/thinking-in-ramda/)
+    * https://dev.to/avalander/handling-errors-with-either-2i7j
     * https://medium.com/free-code-camp/functional-programming-in-js-with-practical-examples-part-1-87c2b0dbc276#.fbgrmoa7g
     * https://medium.com/free-code-camp/functional-programming-in-js-with-practical-examples-part-2-429d2e8ccc9e#.r2mglxozr
     * [Frisby's Guide to FP](https://mostly-adequate.gitbooks.io/mostly-adequate-guide/)
-    * [Railway-oriented@F#](https://fsharpforfunandprofit.com/rop/)
+    * [Railway-oriented@F#](https://fsharpforfunandprofit.com/rop/) [Recipe#1](https://fsharpforfunandprofit.com/posts/recipe-part1/) [Recipe#2](https://fsharpforfunandprofit.com/posts/recipe-part2/) [Recipe#3]
     * [Two Years of FP](https://hackernoon.com/two-years-of-functional-programming-in-javascript-lessons-learned-1851667c726)
     * [Composable Software](https://medium.com/javascript-scene/composing-software-the-book-f31c77fc3ddc)
     * S
