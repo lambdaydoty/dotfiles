@@ -253,6 +253,11 @@ csudo "$Env:USERPROFILE\.babun\cygwin\home\$Env:USERNAME\.ms-auth\authorization-
 csudo choco install -y babun
 & $HOME\.babun\update.bat
 
+## Powerline Fonts (PS)
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+.\install.ps1
+
 ## Packages
 pact install cygutils-extra # putclip/getclip
 pact install jq unzip
