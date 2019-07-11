@@ -256,6 +256,9 @@ csudo choco install -y babun
 ## Packages
 pact install cygutils-extra # putclip/getclip
 pact install jq unzip
+
+## Initialize
+babun.bat
 ```
 
 ### Cmder/ConEmu with Babun
