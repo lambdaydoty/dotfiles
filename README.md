@@ -244,8 +244,8 @@ Invoke-WebRequest -Uri 'https://sites.google.com/a/csie.ntu.edu.tw/ta221/downloa
 ## 6. Authenticate M$ [PS/Cmder]
 csudo 'C:\Program Files\OpenVPN\bin\openvpn.exe' $HOME\config.ovpn
 (Invoke-WebRequest -Uri 'https://api.ipify.org?format=json').content | jq '.ip'   # check ip
-csudo "$Env:USERPROFILE\.babun\cygwin\home\$Env:USERNAME\.ms-auth\authorization-script-ntu-win7.bat
-csudo "$Env:USERPROFILE\.babun\cygwin\home\$Env:USERNAME\.ms-auth\authorization-script-ntu-office16.bat
+csudo "$Env:USERPROFILE\.babun\cygwin\home\$Env:USERNAME\.ms-auth\authorization-script-ntu-win7.bat"
+csudo "$Env:USERPROFILE\.babun\cygwin\home\$Env:USERNAME\.ms-auth\authorization-script-ntu-office16.bat"
 ```
 
 ### Babun/Cygwin
