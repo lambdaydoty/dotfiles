@@ -300,3 +300,4 @@ share demo.test \
 
 ### Hanyu Pinyin
 * https://www.pinyinjoe.com/windows-10/windows-10-traditional-chinese-pinyin-input-setup.htm
+* http://www.techlanguage.com/tips/us_international.html  (Use pure US keyboard!)
