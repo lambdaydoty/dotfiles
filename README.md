@@ -20,6 +20,7 @@
     + [Cmder/ConEmu with Babun](#cmder-conemu-with-babun)
     + [Ngrok](#ngrok)
     + [Reference](#reference)
+    + [Hanyu Pinyin](#hanyu-pinyin)
 
 ## Getting Started
 ```bash
@@ -35,7 +36,7 @@ tmux a
 1. Installation of git, zsh, oh-my-zsh
    ```bash
    echo $SHELL
-   sudo apt install -y zsh git
+   sudo apt install -y zsh git unzip zip
    chsh -s $(which zsh)
    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
    ```
@@ -44,7 +45,7 @@ tmux a
    cd $HOME
    echo ".cfg" >> .gitignore
    git clone --bare https://github.com/lambdaydoty/dotfiles.git $HOME/.cfg
-   alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+   alias config='$(which git) --git-dir=$HOME/.cfg/ --work-tree=$HOME'
    mv .zshrc .zshrc.bak
    # mv .gitconfig .gitconfig.bak
    config checkout
@@ -155,11 +156,11 @@ sudo systemctl restart sshd.service
 
 ### Client side
 ```bash
-server_name=ubuntuX230;  mysshkey="$HOME/.ssh/id_rsa.$server_name";  mypass=""
-ssh-keygen -t rsa -N $mypass -f $mysshkey
-ssh-copy-id -i "$mysshkey.pub" jws@192.168.1.xxx  # or # ssh-copy-id -i "$mysshkey.pub" -p 5000 ubuntuX230
+server_name=ubuntuX230;  sshkey="$HOME/.ssh/id_ed25519.$server_name"
+ssh-keygen -t ed25519 -f $sshkey
+ssh-copy-id -i "$sshkey.pub" jws@192.168.1.169
 # you can add the key permanently or use key on the fly with .ssh/config
-ssh-add $mysshkey
+ssh-add $sshkey
 ssh jws@192.168.1.xxx    # -R 2000:localhost:2000 # (optional: establish a reverse tunnel)
 ```
 
@@ -243,8 +244,8 @@ Invoke-WebRequest -Uri 'https://sites.google.com/a/csie.ntu.edu.tw/ta221/downloa
 ## 6. Authenticate M$ [PS/Cmder]
 csudo 'C:\Program Files\OpenVPN\bin\openvpn.exe' $HOME\config.ovpn
 (Invoke-WebRequest -Uri 'https://api.ipify.org?format=json').content | jq '.ip'   # check ip
-csudo "$Env:USERPROFILE\.babun\cygwin\home\$Env:USERNAME\.ms-auth\authorization-script-ntu-win7.bat
-csudo "$Env:USERPROFILE\.babun\cygwin\home\$Env:USERNAME\.ms-auth\authorization-script-ntu-office16.bat
+csudo "$Env:USERPROFILE\.babun\cygwin\home\$Env:USERNAME\.ms-auth\authorization-script-ntu-win7.bat"
+csudo "$Env:USERPROFILE\.babun\cygwin\home\$Env:USERNAME\.ms-auth\authorization-script-ntu-office16.bat"
 ```
 
 ### Babun/Cygwin
@@ -253,9 +254,17 @@ csudo "$Env:USERPROFILE\.babun\cygwin\home\$Env:USERNAME\.ms-auth\authorization-
 csudo choco install -y babun
 & $HOME\.babun\update.bat
 
+## Powerline Fonts (PS)
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+.\install.ps1
+
 ## Packages
 pact install cygutils-extra # putclip/getclip
 pact install jq unzip
+
+## Initialize
+babun.bat
 ```
 
 ### Cmder/ConEmu with Babun
@@ -288,3 +297,7 @@ share demo.test \
 * [Babun:Wiki](https://github.com/babun/babun/wiki)
 * [Babun:Doc](http://babun.github.io/development.html)
 * [Babun:Faq](http://babun.github.io/faq.html)
+
+### Hanyu Pinyin
+* https://www.pinyinjoe.com/windows-10/windows-10-traditional-chinese-pinyin-input-setup.htm
+* http://www.techlanguage.com/tips/us_international.html  (Use pure US keyboard!)
