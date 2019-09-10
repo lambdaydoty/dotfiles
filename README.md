@@ -36,7 +36,7 @@ tmux a
 1. Installation of git, zsh, oh-my-zsh
    ```bash
    echo $SHELL
-   sudo apt install -y zsh git
+   sudo apt install -y zsh git unzip zip
    chsh -s $(which zsh)
    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
    ```
@@ -45,7 +45,7 @@ tmux a
    cd $HOME
    echo ".cfg" >> .gitignore
    git clone --bare https://github.com/lambdaydoty/dotfiles.git $HOME/.cfg
-   alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+   alias config='$(which git) --git-dir=$HOME/.cfg/ --work-tree=$HOME'
    mv .zshrc .zshrc.bak
    # mv .gitconfig .gitconfig.bak
    config checkout
