@@ -70,7 +70,7 @@ tmux a
    sudo apt-get install netcat-openbsd less
    
    ## Oh-my-zsh
-   cd ~/.oh-my-zsh/custom/plugins; git clone https://github.com/zsh-users/zsh-syntax-highlighting
+   cd ~/.oh-my-zsh/custom/plugins && git clone https://github.com/zsh-users/zsh-syntax-highlighting
    ```
 
 ## Force update local repo
@@ -103,7 +103,7 @@ git co -b dev
 mygithubid="lambdaydoty"
 mygithubmail="euphrates.tigris@gmail.com"
 mysshkey="$HOME/.ssh/id_rsa.github.$mygithubid"
-ssh-keygen -t rsa -b 4096 -C $mygithubmail -f $mysshkey
+ssh-keygen -t ed25519 -C $mygithubmail -f $mysshkey
 ssh-add $mysshkey; ssh-add -l
 
 ## 2. Adding the public key to Github
