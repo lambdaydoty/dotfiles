@@ -89,3 +89,12 @@ au BufEnter,BufNew * if &diff | syntax off | else | syntax on | endif
 "" close quickfix window
 nmap <F2> <Plug>window:quickfix:toggle
 nnoremap <F3> <Esc>:w<CR>:Dispatch racket %<CR>
+
+"" fix netrw C-L mapping
+augroup netrw_mapping
+    autocmd!
+    autocmd filetype netrw call NetrwMapping()
+augroup END
+function! NetrwMapping()
+    noremap <buffer> <C-L> :TmuxNavigateRight<CR>
+endfunction
