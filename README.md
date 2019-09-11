@@ -56,7 +56,7 @@ tmux a
    config push -u origin master
    
    ## .ssh/config
-   unzip .ssh/config-chmod600.zip; chmod 600 .ssh/config
+   unzip -o .ssh/config-chmod600.zip && chmod 600 .ssh/config
    zip -e ./.ssh/config-chmod600.zip ./.ssh/config
    ```
 3. Installation of other packages
