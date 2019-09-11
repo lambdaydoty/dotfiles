@@ -1,3 +1,3 @@
 while [ true ]; do
-  nc -l 2000 | tee /dev/tty | putclip
+  nc -l 3001 | tee /dev/tty | putclip
 done
