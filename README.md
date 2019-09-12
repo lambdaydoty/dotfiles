@@ -61,16 +61,19 @@ tmux a
    ```
 3. Installation of other packages
    ```bash
-   ## goto-vim: PlugClean
-   ## goto-vim: PlugInstall
+   ## VIM
+   # goto-vim: PlugClean | PlugInstall
    config st
-   config reset --hard # update .vim/...
+   config co @ -- <file> # reset modified configuration
    
-   ## debian
+   ## DEBIAN
    sudo apt-get install netcat-openbsd less
    
-   ## Oh-my-zsh
+   ## OH-MY-ZSH
    cd ~/.oh-my-zsh/custom/plugins && git clone https://github.com/zsh-users/zsh-syntax-highlighting
+   
+   ## TMUX
+   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && tmux source ~/.tmux.conf
    ```
 
 ## Force update local repo
