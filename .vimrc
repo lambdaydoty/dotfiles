@@ -49,6 +49,7 @@ Plug 'drmingdrmer/vim-toggle-quickfix'
 Plug 'ekalinin/Dockerfile.vim'        "| docker
 Plug 'jiangmiao/auto-pairs'
 Plug 'simeji/winresizer'
+Plug 'osyo-manga/vim-over'            "| preview search pattern over command line
 call plug#end()
 
 "" w0rp/ale: If encounting problems, debug with :ALEInfo command
@@ -80,8 +81,9 @@ endif
 "" vim <C-right> bindings
 set term=xterm-256color
 
-"" vim drracket's if-indent style
-set lispwords-=if
+"" SCHEME/RACKET
+set lispwords-=if "| DrRacket's if-indent style
+au BufReadPost,BufNewFile *.rkt let b:AutoPairs = AutoPairsDefine({'<!--' : '-->'}, ['''', '`'])
 
 "" vimdiff
 au BufEnter,BufNew * if &diff | syntax off | else | syntax on | endif
