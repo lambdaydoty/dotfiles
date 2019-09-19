@@ -22,6 +22,105 @@
     + [Reference](#reference)
     + [Hanyu Pinyin](#hanyu-pinyin)
 
+## 2020
+```bash
+#apt list --installed
+sudo apt-get update
+sudo apt-get install -y vim openssh-server
+
+sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.original
+#sudo echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
+#sudo echo "Port 2222" >> /etc/ssh/sshd_config
+#sudo echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
+sudo systemctl restart sshd.service
+
+## clinet side
+server_name=vbox && sshkey="$HOME/.ssh/id_ed25519.$server_name" && ssh-keygen -t ed25519 -f $sshkey
+ssh-copy-id -i "$sshkey.pub" jws@localhost -p 2222
+ssh-add $sshkey
+ssh jws@localhost -p 2222
+
+## git, zsh, oh-my-zsh
+sudo apt-get install -y zsh git && chsh -s $(which zsh) && sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+cd ~/.oh-my-zsh/custom/plugins && git clone https://github.com/zsh-users/zsh-syntax-highlighting
+
+cd ~ && \
+  mv .zshrc .zshrc.bak && \
+  echo ".cfg" >> .gitignore && \
+  git clone --bare https://github.com/lambdaydoty/dotfiles.git ~/.cfg
+  alias config='$(which git) --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+config checkout
+config config --local status.showUntrackedFiles no
+config config --local user.email "euphrates.tigris@gmail.com"
+config config --local user.name "lambdaydoty"
+config remote set-url origin git@github.com-lambdaydoty:lambdaydoty/dotfiles
+unzip -o .ssh/config-chmod600.zip && chmod 600 .ssh/config
+
+sudo apt-get install -y tmux jq
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm   # then in tmux: [prefix] + I
+
+# docker
+sudo apt-get update && \
+  sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common && \
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && \
+  sudo apt-key fingerprint 0EBFCD88 && \
+  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && \
+  sudo apt-get update && \
+  sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo groupadd docker
+sudo usermod -aG docker $USER && newgrp docker
+docker run hello-world
+
+# gcc
+sudo apt update && \
+  sudo apt install -y build-essential manpages-dev && \
+  gcc --version
+
+# node env
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+#logout/login
+nvm current && nvm install v10 && node --version
+
+# mongo:4 replica with host network
+
+port0=27017; port1=27018; port2=27019
+rs=db; db0=db0; db1=db1; db2=db2
+rs_init=$(cat <<-END
+  config = {
+    "_id": "$rs",
+    "members": [
+      { "_id": 0, "host": "localhost:$port0" },
+      { "_id": 1, "host": "localhost:$port1" },
+      { "_id": 2, "host": "localhost:$port2" }
+    ]
+  };
+  rs.initiate(config);
+END
+)
+docker run -d --net=host --name $db0 mongo:4 mongod --replSet $rs --port $port0 --bind_ip_all && \
+docker run -d --net=host --name $db1 mongo:4 mongod --replSet $rs --port $port1 --bind_ip_all && \
+docker run -d --net=host --name $db2 mongo:4 mongod --replSet $rs --port $port2 --bind_ip_all && \
+sleep 3 && \
+docker exec -it $db0 mongo --eval $rs_init
+docker ps -a
+
+# omnicore
+docker run --rm -p 9999:9999 -v "$HOME/.bitcoin:/root/.bitcoin" -it --name omnicore mpugach/omnicored \
+  -server -regtest -txindex -rpcuser=rpc -rpcpassword=pass -rpcport=9999 -rpcallowip=172.0.0.0/8 \
+  -printtoconsole
+
+body=$(cat <<-END
+  {
+    "jsonrpc": "1.0",
+    "method": "getinfo",
+    "params": []
+  }
+END
+)
+header="content-type:text/plain;"
+curl -s --data-binary $body -H $header http://rpc:pass@localhost:9999    | jq
+```
+
 ## Getting Started
 ```bash
 ./clipboard-daemon.sh& ; ./ssh-adder.sh

@@ -19,7 +19,7 @@ case "${OSTYPE}" in
   win*)     ;;
   *)        ;;
 esac
-test_vm  && ZSH_THEME="lambda" # For vm specifically
+test_vm  && ZSH_THEME="wye_improved" # For vm specifically
 test_deb && ZSH_THEME="lambda_improved" # For (GoogleVM) potentia-dev
 #test_deb && ZSH_THEME="agnoster" # For (GoogleVM) potentia-dev
 
