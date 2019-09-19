@@ -100,3 +100,6 @@ augroup END
 function! NetrwMapping()
     noremap <buffer> <C-L> :TmuxNavigateRight<CR>
 endfunction
+
+"" vim-over
+nnoremap <leader>s :OverCommandLine<CR> %s/<C-r><C-w>
