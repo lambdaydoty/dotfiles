@@ -247,23 +247,23 @@ composer --version
 
 ### Server side
 ```bash
-sudo apt install openssh-server
+sudo apt-get update
+sudo apt install -y openssh-server
 sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.original    # backup
-sudo chmod a-w /etc/ssh/sshd_config.original
-sudo echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
-//sudo echo "Port 2222" >> /etc/ssh/sshd_config
-//sudo echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
+sudo chmod a-w /etc/ssh/sshd_config.original # protect it from writing
+sudo bash -c 'echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config'
+sudo bash -c 'echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config'
 sudo systemctl restart sshd.service
+sudo systemctl status ssh
 ```
 
 ### Client side
 ```bash
 server_name=ubuntuX230;  sshkey="$HOME/.ssh/id_ed25519.$server_name"
 ssh-keygen -t ed25519 -f $sshkey
-ssh-copy-id -i "$sshkey.pub" jws@192.168.1.169
-# you can add the key permanently or use key on the fly with .ssh/config
+ssh-copy-id -i "$sshkey.pub" -p $port jws@localhost
 ssh-add $sshkey
-ssh jws@192.168.1.xxx    # -R 2000:localhost:2000 # (optional: establish a reverse tunnel)
+ssh -p #port jws@localhost # -R 2000:localhost:2000 # (optional: establish a reverse tunnel)
 ```
 
 ## SSH over a public server B (+clipboard)
