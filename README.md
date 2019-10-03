@@ -112,19 +112,19 @@ docker ps -a
 
 # omnicore
 docker run --rm -p 9999:9999 -v "$HOME/.bitcoin:/root/.bitcoin" -it --name omnicore mpugach/omnicored \
-  -server -regtest -txindex -rpcuser=rpc -rpcpassword=pass -rpcport=9999 -rpcallowip=172.0.0.0/8 \
+  -server -regtest -txindex -rpcuser=rpc -rpcpassword=pass -rpcbind=0.0.0.0:9999 -rpcallowip=0.0.0.0/0 \
   -printtoconsole
 
 body=$(cat <<-END
   {
     "jsonrpc": "1.0",
-    "method": "getinfo",
+    "method": "getblockchaininfo",
     "params": []
   }
 END
 )
 header="content-type:text/plain;"
-curl -s --data-binary $body -H $header http://rpc:pass@localhost:9999    | jq
+curl -s --data-binary $body -H $header http://rpc:pass@localhost:9999 | jq
 ```
 
 ## Getting Started
