@@ -339,6 +339,9 @@ choco --version
 choco install -y cmder # -> RESTART WIN
 
 ## 3. Bring up Chrome, ... [PS/Cmder]
+csudo choco install -y powershell
+$PSVersionTable.PSVersionu
+
 csudo choco install -y googlechrome firefox 7zip.install imdisk openvpn
 csudo choco install -y foxitreader pdf24
 csudo choco install -y itunes gpg4win teamviewer smplayer autohotkey
