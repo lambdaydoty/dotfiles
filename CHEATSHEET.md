@@ -71,6 +71,7 @@ $ tmux {list, new, attach, kill, rename}-session -t...
 <c-a>   i  # Move to the pane in the direction*  i/j/k/l
 <c-a> + <up> # Resize a pane <up>/<down>/<right>/<left>
 <c-a>   <sp> # Toggle between layouts
+<c-a>   m  # Select a pane
 
 ## COPY MODE ( MODIFIED-VI )
 <c-a>   [  # Enter the mode

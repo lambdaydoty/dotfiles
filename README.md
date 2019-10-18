@@ -23,22 +23,27 @@
     + [Hanyu Pinyin](#hanyu-pinyin)
 
 ## 2020
+* vbox ssh port forwarding: Settings -> Network -> Adapter 1 -> Port Forwarding -> 
+  ```js
+  { "Name": "SSH", "Protocal": "TCP", "Host IP":"127.0.0.1", "Host Port": "2222", "Guest Port": "22" }
+  ```
 ```bash
 #apt list --installed
 sudo apt-get update
 sudo apt-get install -y vim openssh-server
 
-sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.original
-#sudo echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
-#sudo echo "Port 2222" >> /etc/ssh/sshd_config
-#sudo echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
+sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.original    # backup
+sudo chmod a-w /etc/ssh/sshd_config.original # protect it from writing
+sudo bash -c 'echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config'
+sudo bash -c 'echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config'
 sudo systemctl restart sshd.service
+sudo systemctl status ssh
 
 ## clinet side
 server_name=vbox && sshkey="$HOME/.ssh/id_ed25519.$server_name" && ssh-keygen -t ed25519 -f $sshkey
-ssh-copy-id -i "$sshkey.pub" jws@localhost -p 2222
+ssh-copy-id -i "$sshkey.pub" -p $port jws@localhost
 ssh-add $sshkey
-ssh jws@localhost -p 2222
+ssh -p $port jws@localhost # -R 2000:localhost:2000 # (optional: establish a reverse tunnel)
 
 ## git, zsh, oh-my-zsh
 sudo apt-get install -y zsh git && chsh -s $(which zsh) && sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
@@ -56,7 +61,8 @@ config config --local user.name "lambdaydoty"
 config remote set-url origin git@github.com-lambdaydoty:lambdaydoty/dotfiles
 unzip -o .ssh/config-chmod600.zip && chmod 600 .ssh/config
 
-sudo apt-get install -y tmux jq
+# tmux, jq, python
+sudo apt-get install -y tmux jq python
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm   # then in tmux: [prefix] + I
 
 # docker
@@ -76,7 +82,7 @@ sudo apt update && \
   sudo apt install -y build-essential manpages-dev && \
   gcc --version
 
-# node env
+# node
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 #logout/login
 nvm current && nvm install v10 && node --version
@@ -106,19 +112,19 @@ docker ps -a
 
 # omnicore
 docker run --rm -p 9999:9999 -v "$HOME/.bitcoin:/root/.bitcoin" -it --name omnicore mpugach/omnicored \
-  -server -regtest -txindex -rpcuser=rpc -rpcpassword=pass -rpcport=9999 -rpcallowip=172.0.0.0/8 \
+  -server -regtest -txindex -rpcuser=rpc -rpcpassword=pass -rpcbind=0.0.0.0:9999 -rpcallowip=0.0.0.0/0 \
   -printtoconsole
 
 body=$(cat <<-END
   {
     "jsonrpc": "1.0",
-    "method": "getinfo",
+    "method": "getblockchaininfo",
     "params": []
   }
 END
 )
 header="content-type:text/plain;"
-curl -s --data-binary $body -H $header http://rpc:pass@localhost:9999    | jq
+curl -s --data-binary $body -H $header http://rpc:pass@localhost:9999 | jq
 ```
 
 ## Getting Started
@@ -247,23 +253,23 @@ composer --version
 
 ### Server side
 ```bash
-sudo apt install openssh-server
+sudo apt-get update
+sudo apt install -y openssh-server
 sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.original    # backup
-sudo chmod a-w /etc/ssh/sshd_config.original
-sudo echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
-//sudo echo "Port 2222" >> /etc/ssh/sshd_config
-//sudo echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config
+sudo chmod a-w /etc/ssh/sshd_config.original # protect it from writing
+sudo bash -c 'echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config'
+sudo bash -c 'echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config'
 sudo systemctl restart sshd.service
+sudo systemctl status ssh
 ```
 
 ### Client side
 ```bash
 server_name=ubuntuX230;  sshkey="$HOME/.ssh/id_ed25519.$server_name"
 ssh-keygen -t ed25519 -f $sshkey
-ssh-copy-id -i "$sshkey.pub" jws@192.168.1.169
-# you can add the key permanently or use key on the fly with .ssh/config
+ssh-copy-id -i "$sshkey.pub" -p $port jws@localhost
 ssh-add $sshkey
-ssh jws@192.168.1.xxx    # -R 2000:localhost:2000 # (optional: establish a reverse tunnel)
+ssh -p #port jws@localhost # -R 2000:localhost:2000 # (optional: establish a reverse tunnel)
 ```
 
 ## SSH over a public server B (+clipboard)
@@ -333,6 +339,9 @@ choco --version
 choco install -y cmder # -> RESTART WIN
 
 ## 3. Bring up Chrome, ... [PS/Cmder]
+csudo choco install -y powershell
+$PSVersionTable.PSVersionu
+
 csudo choco install -y googlechrome firefox 7zip.install imdisk openvpn
 csudo choco install -y foxitreader pdf24
 csudo choco install -y itunes gpg4win teamviewer smplayer autohotkey

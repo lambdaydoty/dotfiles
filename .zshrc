@@ -19,7 +19,7 @@ case "${OSTYPE}" in
   win*)     ;;
   *)        ;;
 esac
-test_vm  && ZSH_THEME="lambda" # For vm specifically
+test_vm  && ZSH_THEME="wye_improved" # For vm specifically
 test_deb && ZSH_THEME="lambda_improved" # For (GoogleVM) potentia-dev
 #test_deb && ZSH_THEME="agnoster" # For (GoogleVM) potentia-dev
 
@@ -157,3 +157,5 @@ source_if_possible /usr/share/racket/pkgs/shell-completion/racket-completion.zsh
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+stty -ixon # Disable ctrl-s ctrl-q
