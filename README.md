@@ -46,6 +46,7 @@ ssh-add $sshkey
 ssh -p $port jws@localhost # -R 2000:localhost:2000 # (optional: establish a reverse tunnel)
 
 ## git, zsh, oh-my-zsh
+sudo sed -i 's/required/sufficient/g' /etc/pam.d/chsh    # for gcp vm
 sudo apt-get install -y zsh git && chsh -s $(which zsh) && sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 cd ~/.oh-my-zsh/custom/plugins && git clone https://github.com/zsh-users/zsh-syntax-highlighting
 
