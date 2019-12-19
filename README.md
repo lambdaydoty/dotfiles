@@ -108,8 +108,8 @@ docker run -d --net=host --name $db0 mongo:4 mongod --replSet $rs --port $port0 
 docker run -d --net=host --name $db1 mongo:4 mongod --replSet $rs --port $port1 --bind_ip_all && \
 docker run -d --net=host --name $db2 mongo:4 mongod --replSet $rs --port $port2 --bind_ip_all && \
 sleep 3 && \
-docker exec -it $db0 mongo --host localhost --port $port0 --eval $rs_init
-# 也可從本機連: mongo --host localhost --port 37017 --eval $rs_init
+docker exec -it $db0 mongo --host localhost --port $port0 --eval "$rs_init"
+# 也可從本機連: mongo --host localhost --port 37017 --eval "$rs_init"
 docker exec -it $db0 mongo --host localhost --port $port0 --eval "rs.status()"
 
 # omnicore
