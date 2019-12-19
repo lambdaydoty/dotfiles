@@ -49,12 +49,12 @@ ssh -p $port jws@localhost # -R 2000:localhost:2000 # (optional: establish a rev
 sudo sed -i 's/required/sufficient/g' /etc/pam.d/chsh    # for gcp vm
 sudo apt-get install -y zsh git && chsh -s $(which zsh) && sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 cd ~/.oh-my-zsh/custom/plugins && git clone https://github.com/zsh-users/zsh-syntax-highlighting
+cd ~ && mv .zshrc .zshrc.bak
 
-cd ~ && \
-  mv .zshrc .zshrc.bak && \
-  echo ".cfg" >> .gitignore && \
-  git clone --bare https://github.com/lambdaydoty/dotfiles.git ~/.cfg
-  alias config='$(which git) --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+## identities
+echo ".cfg" >> .gitignore && \
+git clone --bare https://github.com/lambdaydoty/dotfiles.git ~/.cfg
+alias config='$(which git) --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config checkout
 config config --local status.showUntrackedFiles no
 config config --local user.email "euphrates.tigris@gmail.com"
