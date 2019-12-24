@@ -43,13 +43,16 @@ Plug 'rayburgemeestre/phpfolding.vim' "| php folding
 Plug 'benmills/vimux'                 "| tmux
 Plug 'wlangstroth/vim-racket'         "| racket
 Plug 'kien/rainbow_parentheses.vim'   "| racket
-Plug 'alx741/vinfo'                   "| GNU Texinfo
+Plug 'hiphish/info.vim'               "| Read info files
 Plug 'chrisbra/Colorizer'             "| ANSI colours
 Plug 'drmingdrmer/vim-toggle-quickfix'
 Plug 'ekalinin/Dockerfile.vim'        "| docker
 Plug 'jiangmiao/auto-pairs'
 Plug 'simeji/winresizer'
 Plug 'osyo-manga/vim-over'            "| preview search pattern over command line
+Plug 'neovimhaskell/haskell-vim'
+Plug 'itchyny/vim-haskell-indent'
+Plug 'nbouscal/vim-stylish-haskell'
 call plug#end()
 
 "" w0rp/ale: If encounting problems, debug with :ALEInfo command
@@ -83,10 +86,13 @@ set term=xterm-256color
 
 "" SCHEME/RACKET
 set lispwords-=if "| DrRacket's if-indent style
+set lispwords+=λ
+set lispwords+=let/cc
 au BufReadPost,BufNewFile *.rkt let b:AutoPairs = AutoPairsDefine({'<!--' : '-->'}, ['''', '`'])
 
 "" vimdiff
 au BufEnter,BufNew * if &diff | syntax off | else | syntax on | endif
+filetype plugin indent on
 
 "" close quickfix window
 nmap <F2> <Plug>window:quickfix:toggle

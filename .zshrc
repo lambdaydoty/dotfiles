@@ -159,3 +159,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 stty -ixon # Disable ctrl-s ctrl-q
+
+## Bindings for Home/End
+bindkey "\033[1~" beginning-of-line
+bindkey "\033[4~" end-of-line
