@@ -46,14 +46,15 @@ ssh-add $sshkey
 ssh -p $port jws@localhost # -R 2000:localhost:2000 # (optional: establish a reverse tunnel)
 
 ## git, zsh, oh-my-zsh
+sudo sed -i 's/required/sufficient/g' /etc/pam.d/chsh    # for gcp vm
 sudo apt-get install -y zsh git && chsh -s $(which zsh) && sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 cd ~/.oh-my-zsh/custom/plugins && git clone https://github.com/zsh-users/zsh-syntax-highlighting
+cd ~ && mv .zshrc .zshrc.bak
 
-cd ~ && \
-  mv .zshrc .zshrc.bak && \
-  echo ".cfg" >> .gitignore && \
-  git clone --bare https://github.com/lambdaydoty/dotfiles.git ~/.cfg
-  alias config='$(which git) --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+## identities
+echo ".cfg" >> .gitignore && \
+git clone --bare https://github.com/lambdaydoty/dotfiles.git ~/.cfg
+alias config='$(which git) --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config checkout
 config config --local status.showUntrackedFiles no
 config config --local user.email "euphrates.tigris@gmail.com"
@@ -107,8 +108,8 @@ docker run -d --net=host --name $db0 mongo:4 mongod --replSet $rs --port $port0 
 docker run -d --net=host --name $db1 mongo:4 mongod --replSet $rs --port $port1 --bind_ip_all && \
 docker run -d --net=host --name $db2 mongo:4 mongod --replSet $rs --port $port2 --bind_ip_all && \
 sleep 3 && \
-docker exec -it $db0 mongo --host localhost --port $port0 --eval $rs_init
-# 也可從本機連: mongo --host localhost --port 37017 --eval $rs_init
+docker exec -it $db0 mongo --host localhost --port $port0 --eval "$rs_init"
+# 也可從本機連: mongo --host localhost --port 37017 --eval "$rs_init"
 docker exec -it $db0 mongo --host localhost --port $port0 --eval "rs.status()"
 
 # omnicore
