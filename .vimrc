@@ -43,7 +43,6 @@ Plug 'rayburgemeestre/phpfolding.vim' "| php folding
 Plug 'benmills/vimux'                 "| tmux
 Plug 'wlangstroth/vim-racket'         "| racket
 Plug 'kien/rainbow_parentheses.vim'   "| racket
-Plug 'hiphish/info.vim'               "| Read info files
 Plug 'chrisbra/Colorizer'             "| ANSI colours
 Plug 'drmingdrmer/vim-toggle-quickfix'
 Plug 'ekalinin/Dockerfile.vim'        "| docker
