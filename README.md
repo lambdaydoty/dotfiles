@@ -39,6 +39,25 @@ sudo bash -c 'echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config'
 sudo systemctl restart sshd.service
 sudo systemctl status ssh
 
+## ssh-keygen
+# new keypair
+server=github && \
+user=lambdaydoty && \
+algo=ed25519 && \
+datetime=`date --iso-8601=seconds` && \
+ssh-keygen \
+  -t $algo \
+  -f "$HOME/.ssh/id_$algo.$server" \
+  -C "${user}@`hostname`_${datetime}" \
+  -E md5 && \
+  chmod 600 "$HOME/.ssh/id_$algo.$server"
+
+# check fingerprint
+ssh-keygen -l -E md5 -f $public_key
+
+# private to public
+ssh-keygen -y -f $private_key > $private_key.pub
+
 ## clinet side
 server_name=vbox && sshkey="$HOME/.ssh/id_ed25519.$server_name" && ssh-keygen -t ed25519 -f $sshkey
 ssh-copy-id -i "$sshkey.pub" -p $port jws@localhost
