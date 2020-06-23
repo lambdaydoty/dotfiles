@@ -30,7 +30,8 @@ Plug 'tpope/vim-commentary'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Yggdroot/indentLine'
 Plug 'pangloss/vim-javascript'        "| js
-Plug 'w0rp/ale'                       "| async lint
+Plug 'leafgarland/typescript-vim'     "| ts
+Plug 'dense-analysis/ale'             "| async lint
 Plug 'tpope/vim-dispatch'             "|
 Plug 'tpope/vim-projectionist'        "|
 Plug 'tpope/vim-surround'             "| (())
@@ -52,15 +53,22 @@ Plug 'osyo-manga/vim-over'            "| preview search pattern over command lin
 Plug 'neovimhaskell/haskell-vim'
 Plug 'itchyny/vim-haskell-indent'
 Plug 'nbouscal/vim-stylish-haskell'
+Plug 'raichoo/purescript-vim'
 call plug#end()
 
+let g:javascript_plugin_flow = 1
+
 "" w0rp/ale: If encounting problems, debug with :ALEInfo command
-let g:ale_enabled = 0
+let g:ale_enabled = 1
 let g:ale_linters = {
-\   'javascript': ['eslint'],
+\   'sh': [],
+\   'typescript': ['eslint', 'tsserver'],
+\   'javascript': ['eslint', 'flow', ],
 \   'php': ['php', 'phpcs'],
 \   'solidity': ['solium'],
 \}
+
+" \   'javascript': ['flow', 'eslint'],
 
 set hlsearch    "| http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
 set incsearch   "| http://vim.wikia.com/wiki/Searching#Show_the_next_match_while_entering_a_search

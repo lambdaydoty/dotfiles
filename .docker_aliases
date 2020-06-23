@@ -3,14 +3,13 @@
 # ------------------------------------
 
 # jws
-alias dk='docker'
 alias dkr='docker run'
 alias dke='docker exec'
 alias dkc='docker container'
 alias dkn='docker network'
 alias dkb='docker build'
 alias dki='docker image'
-alias dkps='docker ps'
+alias dkps='docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Networks}} {{.Ports}}"'
 
 alias dl="docker ps -l -q"    # Get latest container ID
 alias dps="docker ps"         # Get container process

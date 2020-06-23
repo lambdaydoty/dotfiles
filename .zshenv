@@ -2,7 +2,7 @@
 # .zshenv will be sourced by vim env
 #
 
-alias jsgrep='grep -r --include=\*.{js,json} --exclude-dir=node_modules'
+alias jsgrep='grep -r --include=\*.{js,json} --exclude-dir={node_modules,build,doc}'
 
 clip_port1=3000
 clip_port2=4000
