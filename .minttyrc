@@ -7,25 +7,32 @@ SwitchShortcuts=no
 ZoomShortcuts=no
 AltFnShortcuts=no
 
-# https://github.com/dracula/mintty.git
-ForegroundColour=248,248,242
-BackgroundColour=40,42,54
-Black=0,0,0
-BoldBlack=104,104,104
-Red=255,85,85
-BoldRed=255,110,103
-Green=80,250,123
-BoldGreen=90,247,142
-Yellow=241,250,140
-BoldYellow=244,249,157
-Blue=202,169,250
-BoldBlue=202,169,250
-Magenta=255,121,198
-BoldMagenta=255,146,208
-Cyan=139,233,253
-BoldCyan=154,237,254
-White=191,191,191
-BoldWhite=230,230,230
+# (Cursor stops blinking after entering XYZ)
+# https://github.com/mintty/wsltty/issues/133
+SuppressDEC=12
+
+# https://github.com/skylarmb/gruvbox-mintty
+
+ForegroundColour = 235, 219, 178
+BackgroundColour =  40,  40,  40
+CursorColour     = 251, 241, 199
+IMECursorColour  = 251, 241, 199
+Black            =  29,  32,  33
+BoldBlack        = 146, 132, 116
+Red              = 204,  36,  29
+BoldRed          = 251,  73,  52
+Green            = 152, 151,  26
+BoldGreen        = 184, 187,  38
+Yellow           = 215, 153,  33
+BoldYellow       = 250, 189,  47
+Blue             =  69, 133, 136
+BoldBlue         = 131, 165, 152
+Magenta          = 177,  98, 134
+BoldMagenta      = 211, 134, 155
+Cyan             = 104, 157, 106
+BoldCyan         = 142, 192, 124
+White            = 235, 219, 178
+BoldWhite        = 251, 241, 199
 
 # # https://github.com/oumu/mintty-color-schemes
 # ForegroundColour=208,208,208

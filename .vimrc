@@ -1,5 +1,3 @@
-colorscheme torte
-
 "" group all generated files
 if !isdirectory(expand("$HOME/.vimundo"))
   call mkdir(expand("$HOME/.vimundo"))
@@ -54,7 +52,11 @@ Plug 'neovimhaskell/haskell-vim'
 Plug 'itchyny/vim-haskell-indent'
 Plug 'nbouscal/vim-stylish-haskell'
 Plug 'raichoo/purescript-vim'
+Plug 'morhetz/gruvbox'
 call plug#end()
+
+"colorscheme torte
+colorscheme gruvbox
 
 let g:javascript_plugin_flow = 1
 
