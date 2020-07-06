@@ -1,28 +1,49 @@
 CursorType=block
 CursorBlinks=yes
 Font=DejaVu Sans Mono for Powerline
+
 WindowShortcuts=no
 SwitchShortcuts=no
 ZoomShortcuts=no
 AltFnShortcuts=no
 
-# mintty-color-schemes/base16-default-mod-lighten.minttyrc
-ForegroundColour=208,208,208
-BackgroundColour=21,21,21
-CursorColour=253,157,79
-Black=21,21,21
-BoldBlack=80,80,80
-Red=172,65,66
-BoldRed=194,94,94
-Green=144,169,89
-BoldGreen=166,187,123
-Yellow=244,191,117
-BoldYellow=248,213,165
-Blue=106,159,181
-BoldBlue=140,181,198
-Magenta=170,117,159
-BoldMagenta=190,149,181
-Cyan=117,181,170
-BoldCyan=151,199,190
-White=208,208,208
-BoldWhite=245,245,245
+# https://github.com/dracula/mintty.git
+ForegroundColour=248,248,242
+BackgroundColour=40,42,54
+Black=0,0,0
+BoldBlack=104,104,104
+Red=255,85,85
+BoldRed=255,110,103
+Green=80,250,123
+BoldGreen=90,247,142
+Yellow=241,250,140
+BoldYellow=244,249,157
+Blue=202,169,250
+BoldBlue=202,169,250
+Magenta=255,121,198
+BoldMagenta=255,146,208
+Cyan=139,233,253
+BoldCyan=154,237,254
+White=191,191,191
+BoldWhite=230,230,230
+
+# # https://github.com/oumu/mintty-color-schemes
+# ForegroundColour=208,208,208
+# BackgroundColour=21,21,21
+# CursorColour=253,157,79
+# Black=21,21,21
+# BoldBlack=80,80,80
+# Red=172,65,66
+# BoldRed=194,94,94
+# Green=144,169,89
+# BoldGreen=166,187,123
+# Yellow=244,191,117
+# BoldYellow=248,213,165
+# Blue=106,159,181
+# BoldBlue=140,181,198
+# Magenta=170,117,159
+# BoldMagenta=190,149,181
+# Cyan=117,181,170
+# BoldCyan=151,199,190
+# White=208,208,208
+# BoldWhite=245,245,245
