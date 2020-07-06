@@ -7,6 +7,10 @@ SwitchShortcuts=no
 ZoomShortcuts=no
 AltFnShortcuts=no
 
+# (Cursor stops blinking after entering XYZ)
+# https://github.com/mintty/wsltty/issues/133
+SuppressDEC=12
+
 # https://github.com/dracula/mintty.git
 ForegroundColour=248,248,242
 BackgroundColour=40,42,54
