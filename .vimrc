@@ -55,7 +55,8 @@ Plug 'raichoo/purescript-vim'
 Plug 'morhetz/gruvbox'
 call plug#end()
 
-"colorscheme torte
+set background=dark
+let g:gruvbox_contrast_dark='soft'
 colorscheme gruvbox
 
 let g:javascript_plugin_flow = 1
