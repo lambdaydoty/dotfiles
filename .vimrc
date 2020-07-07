@@ -57,6 +57,9 @@ call plug#end()
 
 set background=dark
 let g:gruvbox_contrast_dark='soft'
+let g:gruvbox_contrast_light='medium'
+let g:gruvbox_italic=1
+let g:gruvbox_bold=1
 colorscheme gruvbox
 
 let g:javascript_plugin_flow = 1
