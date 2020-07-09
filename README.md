@@ -68,8 +68,10 @@ ssh -p $port jws@localhost # -R 2000:localhost:2000 # (optional: establish a rev
 
 ## git, zsh, oh-my-zsh
 sudo sed -i 's/required/sufficient/g' /etc/pam.d/chsh    # for gcp vm
-sudo apt-get install -y zsh git && chsh -s $(which zsh) && sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
-cd ~/.oh-my-zsh/custom/plugins && git clone https://github.com/zsh-users/zsh-syntax-highlighting
+sudo apt-get install -y zsh git && \
+  chsh -s $(which zsh) && \
+  sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)" && \
+  (curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh)
 cd ~ && mv .zshrc .zshrc.bak
 
 ## identities
@@ -81,7 +83,7 @@ config config --local status.showUntrackedFiles no
 config config --local user.email "euphrates.tigris@gmail.com"
 config config --local user.name "lambdaydoty"
 config remote set-url origin git@github.com-lambdaydoty:lambdaydoty/dotfiles
-unzip -o .ssh/config-chmod600.zip && chmod 600 .ssh/config
+. ~/.zshrc
 
 # tmux, jq, python
 sudo apt-get install -y tmux jq python
