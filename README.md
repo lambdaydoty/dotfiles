@@ -41,16 +41,13 @@ sudo bash -c 'echo "Banner /etc/issue.net" >> /etc/ssh/sshd_config'
 sudo systemctl restart sshd.service
 sudo systemctl status ssh
 
-## ssh-keygen
-# new keypair
+## ssh-keygen for new keypair
 server=github && \
-user=lambdaydoty && \
 algo=ed25519 && \
-datetime=`date --iso-8601=seconds` && \
 ssh-keygen \
   -t $algo \
   -f "$HOME/.ssh/id_$algo.$server" \
-  -C "${user}@`hostname`_${datetime}" \
+  -C "`whoami`@`hostname`_`date --iso-8601=hours`" \
   -E md5 && \
   chmod 600 "$HOME/.ssh/id_$algo.$server"
 
