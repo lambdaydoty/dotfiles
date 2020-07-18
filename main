@@ -1,0 +1,7 @@
+#!/bin/sh
+(jq 'tojson' -r) << EOF
+{
+  "user": "$PAM_USER@`hostname`",
+  "ruser: "${PAM_RUSER:-empty}"
+}
+EOF
