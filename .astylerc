@@ -1,0 +1,47 @@
+#
+# Aristic Style: Option Files
+# http://astyle.sourceforge.net/astyle.html
+#
+
+
+# Brace Style Options
+--style=k&r
+
+# Tab Options
+--indent=spaces=4
+
+# Brace Modify Options
+--attach-closing-while
+
+# Indentation Options
+--indent-preproc-block
+--indent-preproc-define
+--indent-col1-comments
+--max-continuation-indent=40
+
+# Padding Options
+--break-blocks
+--pad-oper
+--pad-comma
+--pad-header
+--unpad-paren
+--delete-empty-lines
+--align-pointer=middle
+--align-reference=name
+
+--pad-paren-in
+
+# Formatting Options
+--break-one-line-headers
+--add-braces
+#--attach-return-type
+--convert-tabs
+--max-code-length=120
+
+# Other Options
+## --suffix=none
+## --recursive
+## --dry-run
+## --exclude=####
+## --lineend=linux
+

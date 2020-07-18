@@ -69,9 +69,10 @@ let g:ale_enabled = 1
 let g:ale_linters = {
 \   'sh': [],
 \   'typescript': ['eslint', 'tsserver'],
-\   'javascript': ['eslint', 'flow', ],
+\   'javascript': ['eslint', 'flow'],
 \   'php': ['php', 'phpcs'],
 \   'solidity': ['solium'],
+\   'python': ['pylint'],
 \}
 
 " \   'javascript': ['flow', 'eslint'],

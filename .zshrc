@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -20,8 +20,9 @@ case "${OSTYPE}" in
   *)        ;;
 esac
 test_vm  && ZSH_THEME="wye_improved" # For vm specifically
-test_deb && ZSH_THEME="lambda_improved" # For (GoogleVM) potentia-dev
 test_deb && ZSH_THEME="agnoster" # For (GoogleVM) potentia-dev
+test_deb && ZSH_THEME="lambda_improved" # For (GoogleVM) potentia-dev
+test_deb && ZSH_THEME="gallois" # For (GoogleVM) potentia-dev
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
