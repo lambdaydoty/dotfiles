@@ -24,6 +24,18 @@
 
 https://www.tunnelsup.com/how-to-create-ssh-tunnels/
 
+## MS-Auth
+
+### Tunnel through socks
+
+1. (bash) `ssh -C2qTnN -D 12001 <user>@linuxN.csie.ntu.edu.tw`
+2. (ProxyCap) Ruleset -> Proxies -> New Proxy Server -> `{ type: "SOCKS5", Hostname: "127.0.0.1", Port: "12001" }`
+3. (ProxyCap) Ruleset -> Rules -> Quick Add Rule ->  `{"Rule Action": "Redirect through proxy", Programs: "(all)", Ports: "(all)", Action: "(default)" }`
+4. (Cmd as Admin)
+   * `cd %HOME%\.babun\cygwin\home\%USERNAME%`
+   * `.\140-ms-auth-win7.bat`
+   * `.\140-ms-auth-office16.bat`
+
 ## 2020
 * vbox ssh port forwarding: Settings -> Network -> Adapter 1 -> Port Forwarding -> 
   ```js
