@@ -36,7 +36,9 @@ https://www.tunnelsup.com/how-to-create-ssh-tunnels/
    * `.\140-ms-auth-win7.bat`
    * `.\140-ms-auth-office16.bat`
 
-> Ref https://www.ocf.berkeley.edu/~xuanluo/sshproxywin.html
+> Ref
+> * https://www.ocf.berkeley.edu/~xuanluo/sshproxywin.html
+> * https://docs.microsoft.com/en-us/deployoffice/vlactivation/tools-to-manage-volume-activation-of-office
 
 ## 2020
 * vbox ssh port forwarding: Settings -> Network -> Adapter 1 -> Port Forwarding -> 
