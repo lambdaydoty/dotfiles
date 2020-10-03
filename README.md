@@ -370,6 +370,12 @@ echo file_{a,b,c} | xargs -n1 | xargs -I % echo "% %"
 ```
 ## 1. Office remover:  https://aka.ms/diag_officeuninstall
 
+## 1.1 Office365:
+
+Backup & remove:
+1) HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\16.0\Common\OEM
+2) HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Office\16.0\Common\OEM
+
 ## 2. Bring up Chocolatey+Cmder [PS@Adminl
 $PSVersionTable.PSVersionu
 Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
