@@ -21,6 +21,7 @@
     + [Ngrok](#ngrok)
     + [Reference](#reference)
     + [Hanyu Pinyin](#hanyu-pinyin)
+  * [1Password](#1password)
 
 https://www.tunnelsup.com/how-to-create-ssh-tunnels/
 
@@ -442,6 +443,10 @@ share demo.test \
   -config ~/.ngrok2/ngrok.yml \
   -config ~/ngrok.authtoken.yml
 ```
+
+### 1Password
+
+https://support.1password.com/getting-started-linux/
 
 ### Reference
 * [SSH@DigitalOcean](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)
