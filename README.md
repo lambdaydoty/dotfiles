@@ -22,8 +22,8 @@
     + [Reference](#reference)
     + [Hanyu Pinyin](#hanyu-pinyin)
   * [1Password](#1password)
-
-https://www.tunnelsup.com/how-to-create-ssh-tunnels/
+  * [PAM-EXEC](#pam-exec)
+  * https://www.tunnelsup.com/how-to-create-ssh-tunnels/
 
 ## MS-Auth
 
@@ -462,3 +462,28 @@ https://support.1password.com/getting-started-linux/
 ### Hanyu Pinyin
 * https://www.pinyinjoe.com/windows-10/windows-10-traditional-chinese-pinyin-input-setup.htm
 * http://www.techlanguage.com/tips/us_international.html  (Use pure US keyboard!)
+
+### PAM EXEC
+* https://blog.stalkr.net/2010/11/login-notifications-pamexec-scripting.html
+* 
+```bash
+#!/bin/sh
+echo notify-login
+[ "$PAM_TYPE" = "open_session" ] || exit 0
+container=$1
+{
+  echo ""
+  echo "        user: $PAM_USER@`hostname`"
+  echo "        ruser: $PAM_RUSER"
+  echo "        rhost: $PAM_RHOST"
+  echo "        service: $PAM_SERVICE"
+  echo "        tty: $PAM_TTY"
+  echo "        date: `date`"
+  echo "        server: `uname -a`"
+} | docker exec -i $container bash -c 'node /app/build/gchat.js'
+```
+```javascript
+...
+const message = process.argv[2] || fs.readFileSync(0).toString('utf8')
+...
+```
