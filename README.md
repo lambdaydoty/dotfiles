@@ -487,3 +487,22 @@ container=$1
 const message = process.argv[2] || fs.readFileSync(0).toString('utf8')
 ...
 ```
+
+### Windows Terminal
+settings.json
+```
+            {
+                "acrylicOpacity": 0.9,
+                "backgroundImage": null,
+                "colorScheme": "Solarized Dark",
+                "cursorShape": "filledBox",
+                "experimental.retroTerminalEffect": false,
+                "fontFace": "Cascadia Code PL",
+                "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+                "hidden": false,
+                "name": "Ubuntu-20.04",
+                "source": "Windows.Terminal.Wsl",
+                "startingDirectory": "//wsl$/Ubuntu-20.04/home/jwshen",
+                "useAcrylic": true
+            },
+```
