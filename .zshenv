@@ -2,7 +2,7 @@
 # .zshenv will be sourced by vim env
 #
 
-alias jsgrep='grep -r --include=\*.{js,json} --exclude-dir={node_modules,build,doc}'
+alias jsgrep='grep -r --include=\*.{js,ts,json} --exclude-dir={node_modules,build,built,doc}'
 
 clip_port1=3000
 clip_port2=4000
@@ -27,3 +27,14 @@ if [ -f /etc/issue ]; then
     *)        ;;
   esac
 fi
+
+alias ga='git add'
+alias gb='git branch'
+alias gc='git commit -v'
+alias gc!='git commit -v --amend'
+alias gco='git checkout'
+alias gd='git diff'
+alias gfa='git fetch --all --prune'
+alias gl='git pull'
+alias gp='git push'
+alias gst='git status'

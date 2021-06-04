@@ -15,12 +15,12 @@ let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 15
-if !&diff && !isdirectory("./vendor/laravel") " excluding Laravel projects
-  augroup ProjectDrawer
-    autocmd!
-    autocmd VimEnter * :Vexplore
-  augroup END
-endif
+" if !&diff && !isdirectory("./vendor/laravel") " excluding Laravel projects
+"   augroup ProjectDrawer
+"     autocmd!
+"     autocmd VimEnter * :Vexplore
+"   augroup END
+" endif
 
 "" vim-plug
 call plug#begin()
@@ -53,6 +53,9 @@ Plug 'itchyny/vim-haskell-indent'
 Plug 'nbouscal/vim-stylish-haskell'
 Plug 'raichoo/purescript-vim'
 Plug 'morhetz/gruvbox'
+Plug 'will133/vim-dirdiff'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'kevinoid/vim-jsonc'
 call plug#end()
 
 set background=dark
@@ -62,20 +65,16 @@ let g:gruvbox_italic=1
 let g:gruvbox_bold=1
 colorscheme gruvbox
 
-let g:javascript_plugin_flow = 1
-
 "" w0rp/ale: If encounting problems, debug with :ALEInfo command
 let g:ale_enabled = 1
 let g:ale_linters = {
 \   'sh': [],
 \   'typescript': ['eslint', 'tsserver'],
-\   'javascript': ['eslint', 'flow'],
+\   'javascript': ['eslint'],
 \   'php': ['php', 'phpcs'],
 \   'solidity': ['solium'],
 \   'python': ['pylint'],
 \}
-
-" \   'javascript': ['flow', 'eslint'],
 
 set hlsearch    "| http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
 set incsearch   "| http://vim.wikia.com/wiki/Searching#Show_the_next_match_while_entering_a_search
@@ -123,3 +122,10 @@ endfunction
 
 "" vim-over
 nnoremap <leader>s :OverCommandLine<CR> %s/<C-r><C-w>
+
+"" Coc
+let g:coc_global_extensions = [
+  \ 'coc-tsserver'
+  \ ]
+
+set backspace=indent,eol,start
