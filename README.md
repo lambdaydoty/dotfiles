@@ -506,3 +506,11 @@ settings.json
                 "useAcrylic": true
             },
 ```
+
+### PDF utilities
+
+```
+gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dAutoRotatePages=/None -sOutputFile=finished.pdf  file1.pdf file2.pdf ...
+gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER -dFirstPage=3 -dLastPage=5 -sOutputFile=out.pdf in.pdf
+pdftk old.pdf cat 1-endeast output rotated.pdf
+```
