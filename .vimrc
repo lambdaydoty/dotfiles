@@ -23,6 +23,11 @@ let g:netrw_winsize = 15
 " endif
 
 "" vim-plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 call plug#begin()
 Plug 'tpope/vim-commentary'
 Plug 'editorconfig/editorconfig-vim'
@@ -56,6 +61,10 @@ Plug 'morhetz/gruvbox'
 Plug 'will133/vim-dirdiff'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'kevinoid/vim-jsonc'
+Plug 'skywind3000/asyncrun.vim'
+if has('nvim')
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  "| nvim only
+endif
 call plug#end()
 
 set background=dark
@@ -95,7 +104,9 @@ if has("win32unix")
 endif
 
 "" vim <C-right> bindings
-set term=xterm-256color
+if !has('nvim')
+  set term=xterm-256color
+endif
 
 "" SCHEME/RACKET
 set lispwords-=if "| DrRacket's if-indent style
@@ -129,3 +140,22 @@ let g:coc_global_extensions = [
   \ ]
 
 set backspace=indent,eol,start
+set mouse=a
+
+if has('nvim')
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = {},  -- list of language that will be disabled
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
+endif
