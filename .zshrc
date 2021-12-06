@@ -80,8 +80,8 @@ plugins=(
   git
   colored-man-pages
   zsh-syntax-highlighting
+  zsh-autosuggestions
 )
-#  zsh-autosuggestions
 
 function source_if_possible()
 {
