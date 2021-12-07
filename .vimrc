@@ -159,3 +159,6 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 endif
+
+set number
+set relativenumber
