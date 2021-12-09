@@ -62,6 +62,7 @@ Plug 'will133/vim-dirdiff'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'kevinoid/vim-jsonc'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'voldikss/vim-floaterm'
 if has('nvim')
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  "| nvim only
 endif
@@ -133,6 +134,9 @@ endfunction
 
 "" vim-over
 nnoremap <leader>s :OverCommandLine<CR> %s/<C-r><C-w>
+
+"" terminal escape
+tnoremap <Esc> <C-\><C-n>
 
 "" Coc
 let g:coc_global_extensions = [

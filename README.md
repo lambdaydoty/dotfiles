@@ -1,29 +1,15 @@
 # dotfiles
 
-- [dotfiles](#dotfiles)
-  * [Getting Started](#getting-started)
-  * [Installation](#installation)
-  * [Force update local repo](#force-update-local-repo)
-  * [New git project](#new-git-project)
-  * [SSH (to repos)](#ssh--to-repos-)
-  * [Minimality packages](#minimality-packages)
-  * [SSH Server](#ssh-server)
-    + [Server side](#server-side)
-    + [Client side](#client-side)
-  * [SSH over a public server B (+clipboard)](#ssh-over-a-public-server-b---clipboard-)
-    + [Preparation](#preparation)
-    + [Connections](#connections)
-  * [Bash tips](#bash-tips)
-  * [MS-Windows](#ms-windows)
-    + [Instructions](#instructions)
-    + [Babun/Cygwin](#babun-cygwin)
-    + [Cmder/ConEmu with Babun](#cmder-conemu-with-babun)
-    + [Ngrok](#ngrok)
-    + [Reference](#reference)
-    + [Hanyu Pinyin](#hanyu-pinyin)
-  * [1Password](#1password)
-  * [PAM-EXEC](#pam-exec)
-  * https://www.tunnelsup.com/how-to-create-ssh-tunnels/
+## 2022
+
+### op
+
+```bash
+gpg --keyserver hkps://keyserver.ubuntu.com --receive-keys <keys>
+gpg --verify op.sig
+op signin my.1password.com <email>
+eval $(op signin my)
+```
 
 ## MS-Auth
 
