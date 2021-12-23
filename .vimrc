@@ -63,10 +63,15 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'kevinoid/vim-jsonc'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'voldikss/vim-floaterm'
+Plug 'HiPhish/info.vim'
+Plug 'phongvcao/vim-stardict'
 if has('nvim')
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  "| nvim only
 endif
 call plug#end()
+
+"" phongvcao/vim-stardict, workaround, https://github.com/phongvcao/vim-stardict/issues/6
+nnoremap <localleader>sc :silent! StarDictCursor<CR>
 
 set background=dark
 let g:gruvbox_contrast_dark='soft'
