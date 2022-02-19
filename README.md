@@ -11,6 +11,10 @@ op signin my.1password.com <email>
 eval $(op signin my)
 ```
 
+### MS-Powerline
+
+https://www.hanselman.com/blog/how-to-make-a-pretty-prompt-in-windows-terminal-with-powerline-nerd-fonts-cascadia-code-wsl-and-ohmyposh
+
 ## MS-Auth
 
 ### Tunnel through socks
