@@ -2,6 +2,10 @@
 # .zshenv will be sourced by vim env
 #
 
+alias vim=nvim
+alias ts-node='npx ts-node'
+alias tsc='npx tsc'
+alias racket='docker run -it --rm -v $(pwd):/src -w /src racket/racket:snapshot-full racket'
 alias jsgrep='grep -r --include=\*.{js,ts,json} --exclude-dir={node_modules,build,built,doc}'
 
 clip_port1=3000

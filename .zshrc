@@ -164,3 +164,4 @@ stty -ixon # Disable ctrl-s ctrl-q
 ## Bindings for Home/End
 bindkey "\033[1~" beginning-of-line
 bindkey "\033[4~" end-of-line
+eval "$(pyenv init -)"

@@ -88,8 +88,10 @@ let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'php': ['php', 'phpcs'],
 \   'solidity': ['solium'],
-\   'python': ['pylint'],
+\   'python': ['mypy'],
 \}
+
+"| TODO: 'mypy' -> 'pyright'
 
 set hlsearch    "| http://vim.wikia.com/wiki/Highlight_all_search_pattern_matches
 set incsearch   "| http://vim.wikia.com/wiki/Searching#Show_the_next_match_while_entering_a_search
@@ -145,14 +147,15 @@ tnoremap <Esc> <C-\><C-n>
 
 "" Coc
 let g:coc_global_extensions = [
-  \ 'coc-tsserver'
+  \ 'coc-tsserver',
+  \ 'coc-pyright',
   \ ]
 
 set backspace=indent,eol,start
 set mouse=a
 
 if has('nvim')
-lua <<EOF
+lua <<EOM
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
@@ -165,8 +168,13 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+  indent = {
+    enable = true
+  }
 }
-EOF
+vim.cmd('filetype plugin on')
+vim.cmd('filetype indent off')
+EOM
 endif
 
 set number
